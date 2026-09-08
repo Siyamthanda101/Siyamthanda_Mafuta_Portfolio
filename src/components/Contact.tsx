@@ -81,7 +81,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 text-left">
+        <div className="max-w-3xl mb-14 text-left reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/70 border border-blue-800/40 text-blue-400 font-mono text-xs mb-3">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>07 // GET IN TOUCH</span>
@@ -97,8 +97,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start text-left">
           
           {/* Left Column: Direct Contact Info & Verified Profiles */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#0b101d] p-6 rounded-2xl border border-slate-800 space-y-6 shadow-xl">
+          <div className="lg:col-span-5 space-y-6 reveal-on-scroll">
+            <div className="bg-[#0b101d] p-6 rounded-2xl border border-slate-800 space-y-6 shadow-xl card-lift-hover">
               <h3 className="text-base font-bold text-white tracking-tight">
                 Direct Contact & Verified Handles
               </h3>
@@ -186,7 +186,7 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Interactive Contact Form */}
-          <div className="lg:col-span-7 bg-[#0c1220] p-6 sm:p-8 rounded-2xl border border-blue-500/25 shadow-2xl">
+          <div className="lg:col-span-7 bg-[#0c1220] p-6 sm:p-8 rounded-2xl border border-blue-500/25 shadow-2xl reveal-on-scroll card-lift-hover">
             {isSuccess ? (
               <div className="py-12 px-6 text-center space-y-4">
                 <div className="w-14 h-14 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto shadow-lg shadow-emerald-950/40">

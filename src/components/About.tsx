@@ -65,7 +65,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="max-w-3xl mb-14 text-left">
+        <div className="max-w-3xl mb-14 text-left reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/80 border border-blue-800/50 text-blue-400 font-mono text-xs mb-3">
             <span>ABOUT ME</span>
           </div>
@@ -81,8 +81,8 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
           
           {/* Left Side: About Me Narrative */}
-          <div className="lg:col-span-6 space-y-5 text-left">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800 shadow-xl backdrop-blur-sm space-y-5">
+          <div className="lg:col-span-6 space-y-5 text-left reveal-on-scroll">
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800 shadow-xl backdrop-blur-sm space-y-5 card-lift-hover">
               {ABOUT_PARAGRAPHS.map((paragraph, idx) => (
                 <p 
                   key={idx} 
@@ -104,8 +104,8 @@ export default function About() {
           </div>
 
           {/* Right Side: Visual "Technology Journey" Component */}
-          <div className="lg:col-span-6 text-left">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800 shadow-xl backdrop-blur-sm">
+          <div className="lg:col-span-6 text-left reveal-on-scroll">
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800 shadow-xl backdrop-blur-sm card-lift-hover">
               
               {/* Header explaining that these are areas of development and interest */}
               <div className="mb-6 pb-4 border-b border-slate-800/80 flex items-center justify-between">

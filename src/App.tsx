@@ -10,10 +10,14 @@ import CurriculumVitae from './components/CurriculumVitae.tsx';
 import Contact from './components/Contact.tsx';
 import Footer from './components/Footer.tsx';
 import NetworkBackground from './components/NetworkBackground.tsx';
+import { ThemeProvider } from './context/ThemeContext.tsx';
+import { useScrollReveal } from './hooks/useScrollReveal.ts';
 
-export default function App() {
+function PortfolioContent() {
+  useScrollReveal();
+
   return (
-    <div className="min-h-screen bg-[#080c14] text-slate-100 relative selection:bg-blue-600/30 selection:text-blue-200">
+    <div className="min-h-screen bg-[#080c14] text-slate-100 relative selection:bg-blue-600/30 selection:text-blue-200 transition-colors duration-300">
       {/* Subtle animated network constellation canvas */}
       <NetworkBackground />
 
@@ -36,5 +40,13 @@ export default function App() {
         <Footer />
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioContent />
+    </ThemeProvider>
   );
 }

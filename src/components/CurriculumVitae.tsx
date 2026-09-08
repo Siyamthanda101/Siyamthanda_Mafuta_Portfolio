@@ -26,28 +26,31 @@ export default function CurriculumVitae() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Section Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/70 border border-blue-800/40 text-blue-400 font-mono text-xs mb-4">
-          <FileCheck className="w-3.5 h-3.5" />
-          <span>{CV_CONFIG.badgeLabel}</span>
+        {/* Section Header */}
+        <div className="reveal-on-scroll">
+          {/* Section Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/70 border border-blue-800/40 text-blue-400 font-mono text-xs mb-4">
+            <FileCheck className="w-3.5 h-3.5" />
+            <span>{CV_CONFIG.badgeLabel}</span>
+          </div>
+
+          {/* Section Title */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            {CV_CONFIG.title}
+          </h2>
+          
+          <p className="text-lg sm:text-xl font-medium text-blue-300 mt-2 font-mono">
+            {CV_CONFIG.subtitle}
+          </p>
+
+          {/* Supporting Description */}
+          <p className="mt-3 text-slate-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+            {CV_CONFIG.description}
+          </p>
         </div>
 
-        {/* Section Title */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-          {CV_CONFIG.title}
-        </h2>
-        
-        <p className="text-lg sm:text-xl font-medium text-blue-300 mt-2 font-mono">
-          {CV_CONFIG.subtitle}
-        </p>
-
-        {/* Supporting Description */}
-        <p className="mt-3 text-slate-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-          {CV_CONFIG.description}
-        </p>
-
         {/* Quick Access Action Card */}
-        <div className="mt-8 max-w-2xl mx-auto p-6 sm:p-8 rounded-2xl bg-[#0b1120] border border-slate-800/90 shadow-2xl relative overflow-hidden">
+        <div className="mt-8 max-w-2xl mx-auto p-6 sm:p-8 rounded-2xl bg-[#0b1120] border border-slate-800/90 shadow-2xl relative overflow-hidden reveal-on-scroll card-lift-hover">
           {/* Subtle Top Accent */}
           <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500" />
           

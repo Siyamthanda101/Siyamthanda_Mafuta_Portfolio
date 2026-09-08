@@ -127,7 +127,7 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 text-left">
+        <div className="max-w-3xl mb-14 text-left reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/80 border border-blue-800/50 text-blue-400 font-mono text-xs mb-3">
             <span>TECHNICAL SKILLS</span>
           </div>
@@ -140,7 +140,7 @@ export default function Skills() {
         </div>
 
         {/* 4 Skill Category Cards in a Balanced 2x2 Grid (1-col on mobile, 2-col on tablet & desktop) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 reveal-on-scroll">
           {SKILL_CATEGORIES.map((category) => {
             const Icon = categoryIcons[category.id] || Code2;
 
@@ -148,7 +148,7 @@ export default function Skills() {
               <div
                 key={category.id}
                 id={`skill-card-${category.id}`}
-                className="group relative p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-blue-500/40 hover:bg-slate-850/80 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/30 backdrop-blur-sm"
+                className="group relative p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-blue-500/40 hover:bg-slate-850/80 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/30 backdrop-blur-sm card-lift-hover"
               >
                 {/* Subtle top corner indicator */}
                 <div className="flex items-center justify-between mb-4">

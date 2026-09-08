@@ -137,63 +137,67 @@ export default function Hero() {
           {/* Left Column: Recruiter-Focused Introduction */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Introduction Label & Status */}
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-block px-3 py-1 rounded-md bg-blue-950/80 border border-blue-800/60 font-mono text-xs font-semibold uppercase tracking-widest text-blue-400">
-                {PERSONAL_INFO.introLabel}
-              </span>
-              <div className="inline-flex items-center gap-1.5 text-xs text-slate-400 font-mono">
-                <MapPin className="w-3.5 h-3.5 text-blue-400" />
-                <span>{PERSONAL_INFO.location}</span>
+            {/* 1. Intro Label & Candidate Name - Entrance 1 */}
+            <div className="hero-animate-1 space-y-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-block px-3 py-1 rounded-md bg-blue-950/80 border border-blue-800/60 font-mono text-xs font-semibold uppercase tracking-widest text-blue-400">
+                  {PERSONAL_INFO.introLabel}
+                </span>
+                <div className="inline-flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                  <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                  <span>{PERSONAL_INFO.location}</span>
+                </div>
+              </div>
+
+              {/* Candidate Name */}
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.15]">
+                {PERSONAL_INFO.name}
+              </h1>
+
+              {/* Primary Headline */}
+              <h2 className="text-xl sm:text-2xl font-semibold text-slate-200 tracking-tight leading-snug">
+                Computer Engineering Student |{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
+                  Building Across Software, AI, Networks & Intelligent Systems
+                </span>
+              </h2>
+            </div>
+
+            {/* 2. Supporting Paragraph & Focus Areas - Entrance 2 */}
+            <div className="hero-animate-2 space-y-4">
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                {PERSONAL_INFO.supportingText}
+              </p>
+
+              {/* Personal Brand Tags: ONLY the four specified tags */}
+              <div className="space-y-2 pt-1">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block">
+                  Core Focus Areas
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {PERSONAL_INFO.brandTags.map((tag) => {
+                    return (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900/90 text-slate-200 border border-slate-800 shadow-sm transition-transform duration-200 hover:-translate-y-0.5"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                        <span>{tag}</span>
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            {/* Candidate Name */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.15]">
-              {PERSONAL_INFO.name}
-            </h1>
-
-            {/* Primary Headline */}
-            <h2 className="text-xl sm:text-2xl font-semibold text-slate-200 tracking-tight leading-snug">
-              Computer Engineering Student |{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
-                Building Across Software, AI, Networks & Intelligent Systems
-              </span>
-            </h2>
-
-            {/* Supporting Paragraph */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-              {PERSONAL_INFO.supportingText}
-            </p>
-
-            {/* Personal Brand Tags: ONLY the four specified tags */}
-            <div className="space-y-2 pt-1">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block">
-                Core Focus Areas
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {PERSONAL_INFO.brandTags.map((tag) => {
-                  return (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900/90 text-slate-200 border border-slate-800 shadow-sm"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                      <span>{tag}</span>
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Main Call-to-Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-3.5 sm:gap-4">
+            {/* 3. Main Call-to-Action Buttons - Entrance 3 */}
+            <div className="hero-animate-3 pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4">
               {/* Primary Action: Direct Download CV */}
               <a
                 href={CV_PATH}
                 download={CV_FILENAME}
                 id="hero-download-cv-btn"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/25 transition-all duration-200 hover:translate-y-[-1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/25 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
                 aria-label="Download Curriculum Vitae as PDF"
               >
                 <Download className="w-4 h-4 text-blue-100" />
@@ -205,7 +209,7 @@ export default function Hero() {
                 type="button"
                 onClick={() => scrollTo('projects')}
                 id="hero-explore-work-btn"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-200 hover:translate-y-[-1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
               >
                 <span>Explore Work</span>
                 <ArrowRight className="w-4 h-4 text-blue-400" />
@@ -216,7 +220,7 @@ export default function Hero() {
                 type="button"
                 onClick={() => scrollTo('contact')}
                 id="hero-get-in-touch-btn"
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500 cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-slate-500 cursor-pointer"
               >
                 <Mail className="w-4 h-4 text-blue-400" />
                 <span>Contact</span>
@@ -231,7 +235,7 @@ export default function Hero() {
                   id="hero-github-icon"
                   title="Visit Siyamthanda Mafuta's GitHub"
                   aria-label="GitHub Profile"
-                  className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-slate-850 transition-colors"
+                  className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-slate-850 transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -244,7 +248,7 @@ export default function Hero() {
                   id="hero-linkedin-icon"
                   title="Visit Siyamthanda Mafuta's LinkedIn"
                   aria-label="LinkedIn Profile"
-                  className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-slate-850 transition-colors"
+                  className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-slate-850 transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -255,8 +259,8 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: Prominent, Elegant Profile Image Area */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Right Column: Prominent, Elegant Profile Image Area - Entrance 4 */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end hero-animate-4">
             <div className="w-full max-w-sm sm:max-w-md">
               
               {/* Rectangular container with softly rounded corners */}

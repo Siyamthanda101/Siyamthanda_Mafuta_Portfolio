@@ -11,7 +11,7 @@ export default function Education() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 text-left">
+        <div className="max-w-3xl mb-14 text-left reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/70 border border-blue-800/40 text-blue-400 font-mono text-xs mb-3">
             <GraduationCap className="w-3.5 h-3.5" />
             <span>06 // ACADEMIC FOUNDATION</span>
@@ -25,7 +25,7 @@ export default function Education() {
         </div>
 
         {/* Education Cards Grid / Timeline */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left reveal-on-scroll">
           {EDUCATION_DATA.map((edu, index) => {
             const isInProgress = edu.status.includes('In Progress');
 
@@ -33,7 +33,7 @@ export default function Education() {
               <div
                 key={index}
                 id={`education-card-${index}`}
-                className={`p-7 rounded-2xl border transition-all duration-300 relative flex flex-col justify-between ${
+                className={`p-7 rounded-2xl border transition-all duration-300 relative flex flex-col justify-between card-lift-hover ${
                   isInProgress
                     ? 'bg-gradient-to-br from-[#0c1424] via-[#0e1628] to-[#090e1a] border-blue-500/40 shadow-xl shadow-blue-950/20'
                     : 'bg-[#0b101c] border-slate-800 hover:border-slate-700 shadow-lg'

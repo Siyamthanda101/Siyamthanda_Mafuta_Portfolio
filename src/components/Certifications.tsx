@@ -90,7 +90,7 @@ export default function Certifications() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 text-left">
+        <div className="max-w-3xl mb-10 text-left reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/70 border border-blue-800/40 text-blue-400 font-mono text-xs mb-3">
             <Award className="w-3.5 h-3.5" />
             <span>05 // CONFIRMED CREDENTIALS</span>
@@ -104,12 +104,12 @@ export default function Certifications() {
         </div>
 
         {/* Summary Metric Counters */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-10 text-left">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-10 text-left reveal-on-scroll">
           {/* Total */}
           <button
             type="button"
             onClick={() => setActiveFilter('All')}
-            className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
+            className={`p-4 rounded-xl border text-left transition-all cursor-pointer card-lift-hover ${
               activeFilter === 'All'
                 ? 'bg-blue-950/60 border-blue-500/60 ring-1 ring-blue-500/40'
                 : 'bg-slate-900/70 border-slate-800 hover:border-slate-700'
@@ -286,7 +286,7 @@ export default function Certifications() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left reveal-on-scroll">
             {filteredCertifications.map((cert) => {
               const badgeStyle = getClassificationBadge(cert.classification);
               const BadgeIcon = badgeStyle.icon;
@@ -296,7 +296,7 @@ export default function Certifications() {
                 <div
                   key={cert.id}
                   id={`cert-card-${cert.id}`}
-                  className="rounded-2xl bg-[#0a0f1d] border border-slate-800/90 hover:border-slate-700 transition-all duration-300 shadow-xl flex flex-col justify-between overflow-hidden group"
+                  className="rounded-2xl bg-[#0a0f1d] border border-slate-800/90 hover:border-slate-700 transition-all duration-300 shadow-xl flex flex-col justify-between overflow-hidden group card-lift-hover"
                 >
                   <div>
                     {/* Top Preview Image Container */}

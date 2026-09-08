@@ -88,7 +88,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 text-left">
+        <div className="max-w-3xl mb-14 text-left reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/70 border border-blue-800/40 text-blue-400 font-mono text-xs mb-3">
             <FolderGit2 className="w-3.5 h-3.5" />
             <span>FEATURED PROJECTS</span>
@@ -102,7 +102,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-left reveal-on-scroll">
           
           {FEATURED_PROJECTS.map((project) => {
             const IconComp = getProjectIcon(project.id);
@@ -113,7 +113,7 @@ export default function Projects() {
               <div
                 key={project.id}
                 id={`project-card-${project.id}`}
-                className={`rounded-2xl border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
+                className={`rounded-2xl border transition-all duration-300 flex flex-col justify-between group overflow-hidden card-lift-hover ${
                   isFlagship
                     ? 'bg-[#0b1424] border-blue-500/50 shadow-2xl shadow-blue-950/40'
                     : 'bg-[#0a0f1d] border-slate-800/90 hover:border-slate-700 shadow-xl'

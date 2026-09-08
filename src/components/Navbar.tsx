@@ -1,6 +1,7 @@
 import { useState, useEffect, type MouseEvent } from 'react';
 import { Menu, X, Terminal, ArrowUpRight, Download } from 'lucide-react';
 import { PERSONAL_INFO, CV_PATH, CV_FILENAME } from '../data/portfolioData.ts';
+import ThemeToggle from './ThemeToggle.tsx';
 
 interface NavItem {
   name: string;
@@ -120,14 +121,17 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Quick CTA & Status */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        {/* Quick CTA, Theme Toggle & Status */}
+        <div className="hidden sm:flex items-center gap-2">
+          {/* Theme Toggle in Header */}
+          <ThemeToggle variant="compact" />
+
           {/* Direct Download CV Button */}
           <a
             href={CV_PATH}
             download={CV_FILENAME}
             id="nav-download-cv-btn"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded-md shadow-sm shadow-blue-600/30 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded-md shadow-sm shadow-blue-600/30 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
             aria-label="Download Curriculum Vitae as PDF"
           >
             <Download className="w-3.5 h-3.5" />
@@ -139,7 +143,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             id="nav-github-link"
-            className="flex items-center gap-1 text-xs font-mono text-slate-300 hover:text-white px-3 py-1.5 rounded-md border border-slate-800 hover:border-slate-700 bg-slate-900/60 transition-colors"
+            className="flex items-center gap-1 text-xs font-mono text-slate-300 hover:text-white px-3 py-1.5 rounded-md border border-slate-800 hover:border-slate-700 bg-slate-900/60 transition-all duration-200 hover:-translate-y-0.5"
           >
             <span>GitHub</span>
             <ArrowUpRight className="w-3 h-3 text-slate-400" />
@@ -148,31 +152,39 @@ export default function Navbar() {
             href="#contact"
             onClick={(e) => scrollToSection(e, '#contact')}
             id="nav-contact-cta"
-            className="text-xs font-medium text-blue-300 bg-blue-950/60 hover:bg-blue-900/70 border border-blue-500/30 hover:border-blue-400/50 px-3.5 py-1.5 rounded-md transition-all shadow-sm shadow-blue-900/20"
+            className="text-xs font-medium text-blue-300 bg-blue-950/60 hover:bg-blue-900/70 border border-blue-500/30 hover:border-blue-400/50 px-3.5 py-1.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm shadow-blue-900/20"
           >
             Get in Touch
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          aria-label={mobileMenuOpen ? 'Close main menu' : 'Open main menu'}
-          id="mobile-menu-toggle-btn"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        {/* Mobile Actions: Theme Toggle + Hamburger */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle variant="compact" />
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label={mobileMenuOpen ? 'Close main menu' : 'Open main menu'}
+            id="mobile-menu-toggle-btn"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div
           id="mobile-navigation-drawer"
-          className="lg:hidden bg-[#0a0f1c] border-b border-slate-800 px-4 pt-3 pb-6 mt-3 space-y-1 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
+          className="lg:hidden bg-[#0a0f1c] border-b border-slate-800 px-4 pt-3 pb-6 mt-3 space-y-3 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
         >
-          <div className="grid grid-cols-2 gap-1.5 mb-4">
+          {/* Mobile Theme Toggle Full Switch */}
+          <div className="pb-1">
+            <ThemeToggle variant="full" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-1.5">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -194,12 +206,12 @@ export default function Navbar() {
           </div>
 
           {/* Quick Mobile CV Download CTA */}
-          <div className="mb-3 pt-2">
+          <div className="pt-1">
             <a
               href={CV_PATH}
               download={CV_FILENAME}
               id="mobile-nav-download-cv-btn"
-              className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-colors shadow-md shadow-blue-600/30 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-blue-600/30 cursor-pointer"
               aria-label="Download Curriculum Vitae as PDF"
             >
               <Download className="w-4 h-4" />

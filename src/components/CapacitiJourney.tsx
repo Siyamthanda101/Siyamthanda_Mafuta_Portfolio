@@ -25,7 +25,7 @@ export default function CapacitiJourney() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 text-left">
+        <div className="max-w-3xl mb-14 text-left reveal-on-scroll">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/70 border border-blue-800/40 text-blue-400 font-mono text-xs mb-3">
             <Compass className="w-3.5 h-3.5" />
             <span>03 // PROFESSIONAL DEVELOPMENT</span>
@@ -39,7 +39,7 @@ export default function CapacitiJourney() {
         </div>
 
         {/* Month Selector Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-left reveal-on-scroll">
           {CAPACITI_MILESTONES.map((milestone) => {
             const isSelected = selectedMonth === milestone.month;
             return (
@@ -48,7 +48,7 @@ export default function CapacitiJourney() {
                 type="button"
                 onClick={() => setSelectedMonth(milestone.month)}
                 id={`journey-tab-${milestone.month.toLowerCase().replace(/\s+/g, '-')}`}
-                className={`p-5 rounded-xl border text-left transition-all relative overflow-hidden cursor-pointer ${
+                className={`p-5 rounded-xl border text-left transition-all relative overflow-hidden cursor-pointer card-lift-hover ${
                   isSelected
                     ? 'bg-blue-950/70 border-blue-500 shadow-lg shadow-blue-500/10'
                     : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-900'

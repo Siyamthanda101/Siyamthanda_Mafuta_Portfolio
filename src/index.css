@@ -1,1 +1,389 @@
 @import "tailwindcss";
+
+/* 
+ * Custom variant for Tailwind v4 to support .dark class selector
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Smooth Scrolling & Accessibility (Reduced Motion)
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+/* Theme switching smooth transition */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              fill 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Hero Entrance Animation Sequence
+   ========================================================================== */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate-1 {
+  animation: heroFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+}
+
+.hero-animate-2 {
+  animation: heroFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.hero-animate-3 {
+  animation: heroFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+.hero-animate-4 {
+  animation: heroFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+/* ==========================================================================
+   Scroll Reveal System
+   ========================================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-animate-1,
+  .hero-animate-2,
+  .hero-animate-3,
+  .hero-animate-4 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Subtle Micro-Interactions (Cards & Buttons)
+   ========================================================================== */
+.card-lift-hover {
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-lift-hover:hover {
+  transform: translateY(-3px);
+}
+
+.btn-subtle-hover {
+  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-subtle-hover:hover {
+  transform: translateY(-1.5px);
+}
+
+.btn-subtle-hover:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift-hover:hover,
+  .btn-subtle-hover:hover,
+  .btn-subtle-hover:active {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE DESIGN ARCHITECTURE
+   Comprehensive semantic overrides ensuring high contrast, clean surfaces,
+   and visual harmony when html.light is active.
+   ========================================================================== */
+
+/* 1. Canvas & Document Background */
+html.light body {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+html.light ::selection {
+  background-color: #bfdbfe !important;
+  color: #1e3a8a !important;
+}
+
+/* 2. Page wrapper and Section Backgrounds */
+html.light .bg-\[\#080c14\],
+html.light .bg-\[\#060910\],
+html.light .bg-\[\#080d17\],
+html.light .bg-\[\#080d18\],
+html.light .bg-\[\#090d16\],
+html.light .bg-\[\#090d18\],
+html.light .bg-\[\#090e19\],
+html.light .bg-\[\#0a0f1c\],
+html.light .bg-\[\#0a0f1d\],
+html.light .bg-\[\#0b101c\],
+html.light .bg-\[\#0b101d\],
+html.light .bg-\[\#0b111e\],
+html.light .bg-\[\#0b1120\],
+html.light .bg-\[\#0b1424\],
+html.light .bg-\[\#0c1220\] {
+  background-color: #ffffff;
+}
+
+/* Give alternating sections a light subtle contrast */
+html.light section:nth-of-type(even) {
+  background-color: #f8fafc;
+}
+html.light section:nth-of-type(odd) {
+  background-color: #ffffff;
+}
+
+/* 3. Cards & Surfaces */
+html.light .bg-slate-900,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/90,
+html.light .bg-slate-950,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/90,
+html.light .bg-slate-850 {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+}
+
+/* Light mode card hover states */
+html.light .hover\:bg-slate-800:hover,
+html.light .hover\:bg-slate-850:hover,
+html.light .group:hover .group-hover\:bg-slate-850 {
+  background-color: #f8fafc !important;
+}
+
+/* 4. Borders */
+html.light .border-slate-800,
+html.light .border-slate-800\/40,
+html.light .border-slate-800\/50,
+html.light .border-slate-800\/60,
+html.light .border-slate-800\/70,
+html.light .border-slate-800\/80,
+html.light .border-slate-800\/90,
+html.light .border-slate-700,
+html.light .border-slate-700\/80,
+html.light .border-slate-700\/90 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .hover\:border-slate-600:hover,
+html.light .hover\:border-slate-700:hover {
+  border-color: #cbd5e1 !important;
+}
+
+/* 5. Typography */
+/* Primary text & Headings */
+html.light .text-white,
+html.light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+/* Subheadings & Primary body */
+html.light .text-slate-200,
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+/* Secondary & Muted body text */
+html.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+/* 6. Exception: Keep white text on solid blue/colored buttons! */
+html.light a.bg-blue-600,
+html.light button.bg-blue-600,
+html.light .bg-blue-600 span,
+html.light .bg-blue-600 svg,
+html.light a.bg-blue-600 *,
+html.light button.bg-blue-600 * {
+  color: #ffffff !important;
+}
+
+html.light a.bg-blue-600:hover,
+html.light button.bg-blue-600:hover {
+  background-color: #1d4ed8 !important;
+}
+
+/* 7. Header & Navbar in Light Mode */
+html.light header {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+html.light header a,
+html.light header button {
+  color: #475569;
+}
+
+html.light header a:hover,
+html.light header button:hover {
+  color: #0f172a;
+}
+
+/* Active Nav Link in light mode */
+html.light header nav a.bg-blue-950\/60 {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1d4ed8 !important;
+}
+
+/* 8. Secondary Buttons & Pill Badges */
+html.light a.bg-slate-900,
+html.light button.bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+html.light a.bg-slate-900:hover,
+html.light button.bg-slate-900:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  color: #0f172a !important;
+}
+
+/* Blue badges */
+html.light .bg-blue-950\/70,
+html.light .bg-blue-950\/80,
+html.light .bg-blue-950\/60,
+html.light .bg-blue-950\/50,
+html.light .bg-blue-950 {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+}
+
+html.light .text-blue-400,
+html.light .text-blue-300 {
+  color: #2563eb !important;
+}
+
+/* Purple badges (Capaciti) */
+html.light .bg-purple-950\/80,
+html.light .bg-purple-950\/70,
+html.light .bg-purple-950\/60,
+html.light .bg-purple-950 {
+  background-color: #f5f3ff !important;
+  border-color: #ddd6fe !important;
+}
+
+html.light .text-purple-300,
+html.light .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+/* Emerald badges (Personal projects / Authoritative) */
+html.light .bg-emerald-950\/80,
+html.light .bg-emerald-950\/70,
+html.light .bg-emerald-950\/60,
+html.light .bg-emerald-950 {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+}
+
+html.light .text-emerald-300,
+html.light .text-emerald-400 {
+  color: #059669 !important;
+}
+
+/* 9. Input & Textarea fields (Contact section) */
+html.light input,
+html.light textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light input:focus,
+html.light textarea:focus {
+  border-color: #3b82f6 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* 10. Modals & Dialogs */
+html.light .fixed.inset-0.bg-black\/80,
+html.light .fixed.inset-0.bg-black\/85,
+html.light .fixed.inset-0.bg-black\/90 {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* 11. Tooltips / Dropdowns / Popovers */
+html.light .bg-slate-900.border.border-slate-800 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* 12. Footer */
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-top-color: #e2e8f0 !important;
+}
