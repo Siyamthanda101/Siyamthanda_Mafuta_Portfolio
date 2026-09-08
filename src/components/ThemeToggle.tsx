@@ -1,37 +1,68 @@
+import React, { useRef } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext.tsx';
 
 interface ThemeToggleProps {
   variant?: 'compact' | 'full';
   className?: string;
+  id?: string;
 }
 
-export default function ThemeToggle({ variant = 'compact', className = '' }: ThemeToggleProps) {
-  const { theme, toggleTheme, isDark } = useTheme();
+export default function ThemeToggle({
+  variant = 'compact',
+  className = '',
+  id,
+}: ThemeToggleProps) {
+  const { toggleTheme, isDark } = useTheme();
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  // Explicit accessible states and labels matching WCAG and user specifications:
+  // When Light mode active: communicates "Theme: Light mode", indicates activating switches to "Dark mode", aria-pressed="false"
+  // When Dark mode active: communicates "Theme: Dark mode", indicates activating switches to "Light mode", aria-pressed="true"
+  const currentThemeText = isDark ? 'Dark mode' : 'Light mode';
+  const nextThemeActionText = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+  const tooltipText = `Theme: ${currentThemeText}. ${nextThemeActionText}.`;
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    // Native button automatically responds to Enter/Space, but prevent default scroll on Space
+    if (e.key === ' ') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  };
 
   if (variant === 'full') {
     return (
       <button
+        ref={buttonRef}
         type="button"
+        id={id || 'theme-toggle-full-btn'}
         onClick={toggleTheme}
-        className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 cursor-pointer border ${
+        onKeyDown={handleKeyDown}
+        aria-label={nextThemeActionText}
+        aria-pressed={isDark}
+        title={tooltipText}
+        className={`w-full min-h-[44px] flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-mono font-medium transition-colors duration-200 cursor-pointer border ${
           isDark
-            ? 'bg-slate-900/90 border-slate-800 text-slate-200 hover:text-white hover:border-slate-700'
-            : 'bg-white border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300 shadow-sm'
-        } ${className}`}
-        aria-label={`Switch to ${isDark ? 'Light' : 'Dark'} mode`}
-        title={`Switch to ${isDark ? 'Light' : 'Dark'} mode`}
+            ? 'bg-slate-900 border-slate-700 text-slate-200 hover:text-white hover:border-slate-600 hover:bg-slate-800'
+            : 'bg-white border-slate-300 text-slate-800 hover:text-slate-950 hover:border-slate-400 hover:bg-slate-50 shadow-sm'
+        } focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-blue-400 dark:focus-visible:ring-offset-slate-950 focus-visible:ring-offset-white ${className}`}
       >
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2.5">
           {isDark ? (
-            <Moon className="w-4 h-4 text-blue-400" />
+            <Moon className="w-4 h-4 text-blue-300 shrink-0" aria-hidden="true" />
           ) : (
-            <Sun className="w-4 h-4 text-amber-500" />
+            <Sun className="w-4 h-4 text-amber-600 shrink-0" aria-hidden="true" />
           )}
-          <span>Theme: {isDark ? 'Dark Mode' : 'Light Mode'}</span>
+          <span className="font-sans font-medium text-slate-800 dark:text-slate-200">
+            Theme: <span className="font-semibold">{currentThemeText}</span>
+          </span>
         </span>
-        <span className="text-[11px] px-2 py-0.5 rounded bg-blue-600/10 text-blue-500 font-semibold">
-          {isDark ? '🌙 Dark' : '☀️ Light'}
+        <span className="text-[11px] px-2.5 py-1 rounded bg-blue-600/10 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-semibold flex items-center gap-1.5 border border-blue-200 dark:border-blue-800/60">
+          <span>{nextThemeActionText}</span>
+        </span>
+        <span className="sr-only">
+          Theme: {currentThemeText}. {nextThemeActionText}.
         </span>
       </button>
     );
@@ -39,25 +70,30 @@ export default function ThemeToggle({ variant = 'compact', className = '' }: The
 
   return (
     <button
+      ref={buttonRef}
       type="button"
+      id={id || 'theme-toggle-btn'}
       onClick={toggleTheme}
-      id="theme-toggle-btn"
-      className={`relative p-2 rounded-lg transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${
+      onKeyDown={handleKeyDown}
+      aria-label={nextThemeActionText}
+      aria-pressed={isDark}
+      title={tooltipText}
+      className={`min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-lg border transition-colors duration-200 cursor-pointer ${
         isDark
-          ? 'bg-slate-900/80 border border-slate-800/90 text-slate-300 hover:text-white hover:border-slate-700 hover:bg-slate-800 focus:ring-offset-slate-950'
-          : 'bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-50 shadow-sm focus:ring-offset-white'
-      } ${className}`}
-      aria-label={`Switch to ${isDark ? 'Light' : 'Dark'} mode`}
-      title={`Switch to ${isDark ? 'Light' : 'Dark'} mode`}
+          ? 'bg-slate-900 border-slate-700 text-slate-200 hover:text-white hover:border-slate-500 hover:bg-slate-800'
+          : 'bg-white border-slate-300 text-slate-800 hover:text-slate-950 hover:border-slate-400 hover:bg-slate-100 shadow-sm'
+      } focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-blue-400 dark:focus-visible:ring-offset-slate-950 focus-visible:ring-offset-white ${className}`}
     >
-      <div className="relative w-4 h-4">
+      <span className="relative w-5 h-5 flex items-center justify-center pointer-events-none" aria-hidden="true">
         {isDark ? (
-          <Sun className="w-4 h-4 text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
+          <Moon className="w-4 h-4 text-blue-300" />
         ) : (
-          <Moon className="w-4 h-4 text-blue-600 transition-transform duration-300 -rotate-12 hover:rotate-0" />
+          <Sun className="w-4 h-4 text-amber-600" />
         )}
-      </div>
-      <span className="sr-only">Toggle theme</span>
+      </span>
+      <span className="sr-only">
+        Theme: {currentThemeText}. {nextThemeActionText}.
+      </span>
     </button>
   );
 }

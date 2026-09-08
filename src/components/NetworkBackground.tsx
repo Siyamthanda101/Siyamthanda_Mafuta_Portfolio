@@ -12,7 +12,8 @@ export default function NetworkBackground() {
     if (!ctx) return;
 
     // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let prefersReducedMotion = motionQuery.matches;
 
     let animationFrameId: number;
     let width = (canvas.width = window.innerWidth);
@@ -25,6 +26,21 @@ export default function NetworkBackground() {
     };
 
     window.addEventListener('resize', handleResize);
+
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      prefersReducedMotion = e.matches;
+      if (prefersReducedMotion && animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      } else if (!prefersReducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
+    if (motionQuery.addEventListener) {
+      motionQuery.addEventListener('change', handleMotionChange);
+    } else {
+      motionQuery.addListener(handleMotionChange);
+    }
 
     // Subtle particles network
     const particleCount = Math.min(Math.floor((width * height) / 20000), prefersReducedMotion ? 20 : 45);
@@ -105,6 +121,11 @@ export default function NetworkBackground() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (motionQuery.removeEventListener) {
+        motionQuery.removeEventListener('change', handleMotionChange);
+      } else {
+        motionQuery.removeListener(handleMotionChange);
+      }
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
       }

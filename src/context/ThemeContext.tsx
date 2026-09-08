@@ -29,8 +29,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const applyTheme = (newTheme: Theme) => {
     const root = document.documentElement;
-    // Add temporary class to enable smooth theme transitions
-    root.classList.add('theme-transition');
+    
+    // Always programmatically synchronize document-level accessibility attribute
+    root.setAttribute('data-theme', newTheme);
+
+    const prefersReducedMotion = typeof window !== 'undefined' && 
+      window.matchMedia && 
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Add temporary class for smooth theme transitions only if user has not requested reduced motion
+    if (!prefersReducedMotion) {
+      root.classList.add('theme-transition');
+    }
     
     if (newTheme === 'dark') {
       root.classList.add('dark');
@@ -46,11 +56,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       // Ignore if localStorage is restricted
     }
 
-    const timer = setTimeout(() => {
-      root.classList.remove('theme-transition');
-    }, 350);
+    if (!prefersReducedMotion) {
+      const timer = setTimeout(() => {
+        root.classList.remove('theme-transition');
+      }, 350);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   };
 
   useEffect(() => {

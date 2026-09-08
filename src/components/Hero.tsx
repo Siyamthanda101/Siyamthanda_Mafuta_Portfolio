@@ -114,9 +114,12 @@ export default function Hero() {
       const navOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+      const prefersReducedMotion = typeof window !== 'undefined' && 
+        window.matchMedia && 
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
       });
     }
   };

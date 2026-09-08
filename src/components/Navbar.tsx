@@ -59,9 +59,13 @@ export default function Navbar() {
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
+      const prefersReducedMotion = typeof window !== 'undefined' && 
+        window.matchMedia && 
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
       });
       setActiveSection(targetId);
       setMobileMenuOpen(false);
@@ -123,8 +127,8 @@ export default function Navbar() {
 
         {/* Quick CTA, Theme Toggle & Status */}
         <div className="hidden sm:flex items-center gap-2">
-          {/* Theme Toggle in Header */}
-          <ThemeToggle variant="compact" />
+          {/* Theme Toggle in Desktop Header */}
+          <ThemeToggle variant="compact" id="desktop-theme-toggle" />
 
           {/* Direct Download CV Button */}
           <a
@@ -160,7 +164,7 @@ export default function Navbar() {
 
         {/* Mobile Actions: Theme Toggle + Hamburger */}
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle variant="compact" />
+          <ThemeToggle variant="compact" id="mobile-header-theme-toggle" />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -181,7 +185,7 @@ export default function Navbar() {
         >
           {/* Mobile Theme Toggle Full Switch */}
           <div className="pb-1">
-            <ThemeToggle variant="full" />
+            <ThemeToggle variant="full" id="mobile-drawer-theme-toggle" />
           </div>
 
           <div className="grid grid-cols-2 gap-1.5">

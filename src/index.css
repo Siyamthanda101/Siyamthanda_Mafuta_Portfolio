@@ -6,31 +6,43 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ==========================================================================
-   Smooth Scrolling & Accessibility (Reduced Motion)
+   Smooth Scrolling & Accessibility (Reduced Motion & Accessible Theme State)
    ========================================================================== */
-html {
+html,
+html[data-theme="dark"],
+html.dark {
   scroll-behavior: smooth;
   color-scheme: dark;
 }
 
+html[data-theme="light"],
 html.light {
   color-scheme: light;
 }
 
-/* Theme switching smooth transition */
-html.theme-transition,
-html.theme-transition *,
-html.theme-transition *::before,
-html.theme-transition *::after {
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              fill 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* Theme switching smooth transition - strictly guarded for users who do not request reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                fill 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
 }
 
-/* Respect user's motion preferences */
+/* ==========================================================================
+   Respect Reduced Motion Preferences (WCAG 2.2.2 / 2.3.3)
+   - Disables large movements
+   - Minimizes transitions
+   - Removes entrance animations
+   - Preserves instant and predictable interactions
+   - Keeps all content and functionality 100% accessible
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
@@ -43,6 +55,44 @@ html.theme-transition *::after {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001s !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Disable theme-transition animation */
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: none !important;
+  }
+
+  /* Disable scroll-reveal movement and keep content fully visible */
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Remove unnecessary entrance animations */
+  .hero-animate-1,
+  .hero-animate-2,
+  .hero-animate-3,
+  .hero-animate-4 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Minimize hover/active movement across cards and interactive buttons */
+  .card-lift-hover,
+  .card-lift-hover:hover,
+  .btn-subtle-hover,
+  .btn-subtle-hover:hover,
+  .btn-subtle-hover:active,
+  [class*="hover:-translate"]:hover,
+  [class*="hover:translate"]:hover,
+  [class*="active:translate"]:active {
+    transform: none !important;
+    transition: none !important;
   }
 }
 
