@@ -6,6 +6,7 @@ import CapacitiJourney from './components/CapacitiJourney.tsx';
 import Projects from './components/Projects.tsx';
 import Certifications from './components/Certifications.tsx';
 import Education from './components/Education.tsx';
+import CurriculumVitae from './components/CurriculumVitae.tsx';
 import Contact from './components/Contact.tsx';
 import Footer from './components/Footer.tsx';
 import NetworkBackground from './components/NetworkBackground.tsx';
@@ -28,6 +29,7 @@ export default function App() {
           <Projects />
           <Certifications />
           <Education />
+          <CurriculumVitae />
           <Contact />
         </main>
 

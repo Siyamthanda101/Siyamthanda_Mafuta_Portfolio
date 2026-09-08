@@ -15,9 +15,10 @@ import {
   Image as ImageIcon,
   Trash2,
   X,
-  Check
+  Check,
+  Download
 } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData.ts';
+import { PERSONAL_INFO, CV_PATH, CV_FILENAME } from '../data/portfolioData.ts';
 
 export default function Hero() {
   const [customPhotoUrl, setCustomPhotoUrl] = useState<string | null>(() => {
@@ -185,26 +186,40 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Two Main Call-to-Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            {/* Main Call-to-Action Buttons */}
+            <div className="pt-3 flex flex-wrap items-center gap-3.5 sm:gap-4">
+              {/* Primary Action: Direct Download CV */}
+              <a
+                href={CV_PATH}
+                download={CV_FILENAME}
+                id="hero-download-cv-btn"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/25 transition-all duration-200 hover:translate-y-[-1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
+                aria-label="Download Curriculum Vitae as PDF"
+              >
+                <Download className="w-4 h-4 text-blue-100" />
+                <span>Download CV</span>
+              </a>
+
+              {/* Secondary Action: Explore Work */}
               <button
                 type="button"
                 onClick={() => scrollTo('projects')}
                 id="hero-explore-work-btn"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/25 transition-all duration-200 hover:translate-y-[-1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-200 hover:translate-y-[-1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
               >
-                <span>Explore My Work</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Explore Work</span>
+                <ArrowRight className="w-4 h-4 text-blue-400" />
               </button>
 
+              {/* Tertiary Action: Get in Touch */}
               <button
                 type="button"
                 onClick={() => scrollTo('contact')}
                 id="hero-get-in-touch-btn"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-200 hover:translate-y-[-1px] focus:outline-none focus:ring-2 focus:ring-slate-500 cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500 cursor-pointer"
               >
                 <Mail className="w-4 h-4 text-blue-400" />
-                <span>Get In Touch</span>
+                <span>Contact</span>
               </button>
 
               {/* Clean Social Icons: GitHub and LinkedIn */}

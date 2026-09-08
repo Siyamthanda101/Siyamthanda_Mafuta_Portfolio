@@ -1,4 +1,23 @@
-import { SkillCategory, Project, Certification, JourneyMilestone, EducationItem } from '../types.ts';
+import { SkillCategory, Project, Certification, JourneyMilestone, EducationItem, CVConfig } from '../types.ts';
+
+/**
+ * Centralized CV / Resume Reference
+ * Replacing public/documents/Siyamthanda_Mafuta_CV.pdf automatically updates
+ * all View CV / Download CV buttons and viewers across the portfolio.
+ */
+export const CV_PATH = '/documents/Siyamthanda_Mafuta_CV.pdf';
+export const CV_FILENAME = 'Siyamthanda_Mafuta_CV.pdf';
+
+export const CV_CONFIG: CVConfig = {
+  filePath: CV_PATH,
+  downloadFilename: CV_FILENAME,
+  title: 'Curriculum Vitae',
+  sectionHeading: 'Curriculum Vitae',
+  badgeLabel: '07 // RESUME & CREDENTIALS',
+  subtitle: 'My CV',
+  description: 'View or download my latest professional CV.',
+  metaText: 'PDF • Updated CV',
+};
 
 export const PERSONAL_INFO = {
   name: 'Siyamthanda Mafuta',

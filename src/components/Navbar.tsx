@@ -1,6 +1,6 @@
 import { useState, useEffect, type MouseEvent } from 'react';
-import { Menu, X, Terminal, ArrowUpRight } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData.ts';
+import { Menu, X, Terminal, ArrowUpRight, Download } from 'lucide-react';
+import { PERSONAL_INFO, CV_PATH, CV_FILENAME } from '../data/portfolioData.ts';
 
 interface NavItem {
   name: string;
@@ -16,6 +16,7 @@ const NAV_ITEMS: NavItem[] = [
   { name: 'Projects', href: '#projects', id: 'projects' },
   { name: 'Certifications', href: '#certifications', id: 'certifications' },
   { name: 'Education', href: '#education', id: 'education' },
+  { name: 'CV', href: '#cv', id: 'cv' },
   { name: 'Contact', href: '#contact', id: 'contact' },
 ];
 
@@ -120,7 +121,19 @@ export default function Navbar() {
         </nav>
 
         {/* Quick CTA & Status */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-2.5">
+          {/* Direct Download CV Button */}
+          <a
+            href={CV_PATH}
+            download={CV_FILENAME}
+            id="nav-download-cv-btn"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded-md shadow-sm shadow-blue-600/30 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+            aria-label="Download Curriculum Vitae as PDF"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Download CV</span>
+          </a>
+
           <a
             href={PERSONAL_INFO.github}
             target="_blank"
@@ -178,6 +191,20 @@ export default function Navbar() {
                 </a>
               );
             })}
+          </div>
+
+          {/* Quick Mobile CV Download CTA */}
+          <div className="mb-3 pt-2">
+            <a
+              href={CV_PATH}
+              download={CV_FILENAME}
+              id="mobile-nav-download-cv-btn"
+              className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-colors shadow-md shadow-blue-600/30 cursor-pointer"
+              aria-label="Download Curriculum Vitae as PDF"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download CV (PDF)</span>
+            </a>
           </div>
 
           <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">

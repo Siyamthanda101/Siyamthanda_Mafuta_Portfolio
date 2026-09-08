@@ -76,3 +76,14 @@ export interface EducationItem {
   status: 'In Progress (Currently Completing)' | 'Completed';
   keyAreas: string[];
 }
+
+export interface CVConfig {
+  filePath: string;
+  downloadFilename: string;
+  title: string;
+  sectionHeading: string;
+  badgeLabel: string;
+  subtitle: string;
+  description: string;
+  metaText: string;
+}
