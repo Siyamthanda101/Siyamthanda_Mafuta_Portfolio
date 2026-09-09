@@ -33,9 +33,9 @@ export const PERSONAL_INFO = {
   github: 'https://github.com/Siyamthanda101',
   linkedin: 'https://www.linkedin.com/in/siyamthanda-mafuta-0454b51ba/',
   professionalSummary:
-    'Computer Engineering student with a completed Diploma in Computer Engineering and hands-on academic and project experience across software development, networking, databases, embedded systems and artificial intelligence. Currently developing practical solutions through university projects and the CAPACITI Demand Academy. Interested in graduate, internship and entry-level opportunities where I can contribute, learn and grow across software, IT infrastructure, networking and intelligent systems.',
+    'Computer Engineering graduate with a completed Diploma in Computer Engineering, currently completing a Bachelor of Engineering Technology in Computer Engineering at CPUT, with hands-on academic, personal and collaborative project experience across software development, networking, databases, embedded systems and artificial intelligence. Currently developing practical solutions through university projects and the CAPACITI Demand Academy. Interested in graduate, internship and entry-level opportunities where I can contribute, learn and grow across software, IT infrastructure, networking and intelligent systems.',
   supportingText:
-    'Computer Engineering student with a completed Diploma in Computer Engineering and hands-on academic and project experience across software development, networking, databases, embedded systems and artificial intelligence. Currently developing practical solutions through university projects and the CAPACITI Demand Academy. Interested in graduate, internship and entry-level opportunities where I can contribute, learn and grow across software, IT infrastructure, networking and intelligent systems.',
+    'Computer Engineering graduate with a completed Diploma in Computer Engineering, currently completing a Bachelor of Engineering Technology in Computer Engineering at CPUT. Hands-on academic, personal and collaborative project experience across software development, networking, databases, embedded systems and artificial intelligence.',
   brandTags: [
     'Software Development',
     'Networks & Systems',
@@ -46,7 +46,7 @@ export const PERSONAL_INFO = {
 };
 
 export const ABOUT_PARAGRAPHS = [
-  'I am a Computer Engineering student with a Diploma in Computer Engineering and a strong interest in technology and problem-solving. My technical interests span software development, networking, systems administration, cybersecurity, embedded systems, artificial intelligence, machine learning, databases and cloud technologies.',
+  'I am a Computer Engineering graduate holding a completed Diploma in Computer Engineering, currently completing my Bachelor of Engineering Technology in Computer Engineering at the Cape Peninsula University of Technology (CPUT). My technical interests span software development, networking, systems administration, cybersecurity, embedded systems, artificial intelligence, machine learning, databases and cloud technologies.',
   'Through my academic work, personal projects and professional development journey, I have focused on turning technical concepts into practical solutions. I enjoy understanding how systems work, troubleshooting problems and continuously developing my technical abilities.',
   'I am particularly interested in opportunities where I can continue developing as a technology professional while contributing to real-world projects and learning from experienced teams.',
 ];
@@ -305,7 +305,7 @@ export const FEATURED_PROJECTS: Project[] = [
     id: 'infratrack',
     title: 'InfraTrack System',
     tagline: 'Public Works Department Ticket System Model',
-    description: "An academic group project modelled around the City of Johannesburg's Public Works Department ticket management workflows.",
+    description: 'An academic group project developing a full-stack ticket and infrastructure maintenance management system modelled around the City of Johannesburg Public Works Department workflow.',
     technologies: ['JavaScript', 'Node.js', 'MySQL', 'MongoDB'],
     isFlagship: false,
     category: 'Software / Backend',
@@ -317,26 +317,27 @@ export const FEATURED_PROJECTS: Project[] = [
     imageCaption: 'InfraTrack Public Works Hub – Public Ticket Tracking Portal',
     githubUrl: 'https://github.com/allen-vandieman/InfraTrack-System',
     details: [
-      "Academic Group Project modelled around the City of Johannesburg's Public Works Department ticket workflows.",
+      'Academic Group Project modelled around the City of Johannesburg Public Works Department workflow (academic prototype, not an official municipal system).',
       'Role: Project Team Member / Developer.',
       'Engineered backend logic using Node.js and JavaScript to coordinate service tickets.',
       'Dual-database management utilizing MySQL for relational integrity and MongoDB for unstructured logs.',
     ],
     projectDetails: {
-      overview: "An academic group project modelled around the City of Johannesburg's Public Works Department ticket management workflows.",
+      overview: 'A full-stack ticket and infrastructure maintenance management system modelled around the City of Johannesburg Public Works Department workflow. Developed collaboratively as an academic group project (does not imply official municipal deployment or endorsement).',
       projectType: 'Academic Group Project',
       role: 'Project Team Member / Developer',
       individualContribution: 'Contributed to backend ticket handling coordination and database query implementation.',
       problem: 'Handling municipal and public works maintenance ticket tracking, status updates, and service dispatch coordination efficiently.',
-      approach: 'Engineered as an academic group project prototype modelled on municipal ticket handling using Node.js for backend processing and dual-database storage (MySQL and MongoDB).',
+      approach: 'Engineered collaboratively as an academic group project using Node.js and JavaScript for backend processing, with MySQL for relational ticket records and MongoDB for incident logs.',
       technologies: ['JavaScript', 'Node.js', 'MySQL', 'MongoDB'],
       status: 'Academic Group Project',
       repository: 'https://github.com/allen-vandieman/InfraTrack-System',
       bulletPoints: [
-        "Academic Group Project modelled around the City of Johannesburg's Public Works Department (not an official City system).",
+        'Academic Group Project modelled around the City of Johannesburg Public Works Department workflow (does not imply official municipal deployment or endorsement).',
         'Role: Project Team Member / Developer.',
         'Backend service coordination written in Node.js and JavaScript.',
-        'Relational data management with MySQL for ticket states and MongoDB for incident logs.',
+        'Dual-database architecture with MySQL for ticket states and MongoDB for incident logs.',
+        'Public repository hosted on GitHub at allen-vandieman/InfraTrack-System.',
       ],
     },
   },
@@ -574,12 +575,12 @@ export const CERTIFICATIONS: Certification[] = [
 
 export const EDUCATION_HISTORY: EducationItem[] = [
   {
-    degree: 'Bachelor of Engineering Technology (BEng Tech), Computer Engineering',
+    degree: 'Bachelor of Engineering Technology in Computer Engineering',
     field: 'Computer Engineering',
     institution: 'Cape Peninsula University of Technology (CPUT)',
     location: 'Cape Town, South Africa',
     period: '2025 – 2026',
-    status: 'Currently completing',
+    status: 'Currently Completing',
     keyAreas: [
       'Advanced Computer Architecture & Digital Systems',
       'Embedded Microcontroller Interfacing & IoT',

@@ -308,7 +308,7 @@ async function generateCV() {
     {
       title: 'InfraTrack System',
       role: 'Academic Group Project | Project Team Member / Developer',
-      desc: 'Ticket management system modelled around public works maintenance workflows using backend and database technologies.',
+      desc: 'A full-stack ticket and infrastructure maintenance management system modelled around the City of Johannesburg Public Works Department workflow (academic prototype).',
     },
   ];
 
@@ -414,7 +414,7 @@ async function generateCV() {
   y2 = drawSectionHeading(page2, 'EDUCATION', y2);
 
   // Degree 1
-  page2.drawText('Bachelor of Engineering Technology (BEng Tech), Computer Engineering', {
+  page2.drawText('Bachelor of Engineering Technology in Computer Engineering', {
     x: margin,
     y: y2,
     size: 10,
@@ -423,7 +423,7 @@ async function generateCV() {
   });
   y2 -= 13;
 
-  page2.drawText('Cape Peninsula University of Technology (CPUT) | 2025 - 2026 (Currently completing)', {
+  page2.drawText('Cape Peninsula University of Technology (CPUT) | 2025 - 2026 (Currently Completing)', {
     x: margin,
     y: y2,
     size: 9.5,
@@ -442,7 +442,7 @@ async function generateCV() {
   });
   y2 -= 13;
 
-  page2.drawText('Cape Peninsula University of Technology (CPUT) | 2020 - 2024', {
+  page2.drawText('Cape Peninsula University of Technology (CPUT) | 2020 - 2024 (Completed)', {
     x: margin,
     y: y2,
     size: 9.5,

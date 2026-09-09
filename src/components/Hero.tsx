@@ -159,9 +159,9 @@ export default function Hero() {
 
               {/* Primary Headline */}
               <h2 className="text-xl sm:text-2xl font-semibold text-slate-200 tracking-tight leading-snug">
-                Computer Engineering Student |{' '}
+                Computer Engineering Graduate |{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
-                  Building Across Software, AI, Networks & Intelligent Systems
+                  Software, Networks & Intelligent Systems
                 </span>
               </h2>
             </div>

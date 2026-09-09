@@ -12,17 +12,27 @@ A responsive, accessible personal portfolio website built with **React**, **Type
 
 ---
 
+## 🎓 Academic Status & Professional Identity
+
+- **Primary Headline**: `Computer Engineering Graduate | Software, Networks & Intelligent Systems`
+- **Diploma in Computer Engineering** — **Completed** | Cape Peninsula University of Technology (CPUT) (2020 – 2024)
+- **Bachelor of Engineering Technology in Computer Engineering** — **Currently Completing** | Cape Peninsula University of Technology (CPUT) (2025 – 2026)
+
+> **Note on Collaborative Attribution**: Collaborative team projects (including *CSI-Heart*, *RoadReady Traffic Services*, *RoadReady Insights*, and *InfraTrack System*) reflect joint contributions alongside peers and team members, with specific individual contributions transparently documented.
+
+---
+
 ## 🌟 Key Highlights & Included Sections
 
 1. **Professional Identity & About Me**:
-   - Academic background: BEng Tech in Computer Engineering (Currently completing) & Diploma in Computer Engineering from Cape Peninsula University of Technology (CPUT).
+   - Academic background: Completed Diploma in Computer Engineering; currently completing Bachelor of Engineering Technology in Computer Engineering at CPUT.
    - Core specializations across software engineering, networks, databases, embedded systems, and artificial intelligence.
 
 2. **CAPACITI Demand Academy Journey**:
    - Timeline and highlights of intensive technology training covering AI fundamentals, generative AI, Python for data science, prompt engineering, and collaborative software delivery.
 
 3. **Featured Projects Showcase**:
-   - Detailed project cards with category badges, role declarations, tech stack tags, interactive modals, GitHub repositories, and live demo links.
+   - Detailed project cards with category badges, role declarations, verified tech stack tags, interactive modals, GitHub repositories, and live demo links.
 
 4. **Curriculum Vitae (CV)**:
    - Interactive on-page structured curriculum vitae.
@@ -41,13 +51,14 @@ A responsive, accessible personal portfolio website built with **React**, **Type
 
 ## 🛠️ Projects Overview
 
-| Project | Type / Context | Role | Technologies | Links |
-| :--- | :--- | :--- | :--- | :--- |
-| **RoadReady Traffic Services** | CAPACITI Demand Academy Project | Developer & Team Member | JavaScript, Node.js, REST APIs, HTML/CSS | [GitHub Repo](https://github.com/Siyamthanda101/RoadReady-Traffic-Services) |
-| **RoadReady Insights** | CAPACITI Demand Academy Project | Developer & Team Member | React, TypeScript, Tailwind CSS | [Live Application](https://road-ready-pulse.lovable.app/) |
-| **CSI-Heart** | University Research Project | Developer & Team Member | ESP32, Python, Wi-Fi CSI, Signal Processing, ML | In Portfolio |
-| **InfraTrack System** | University Academic Group Project | Developer & Team Member | Java, Spring Boot, MySQL, REST API | [GitHub Repo](https://github.com/allen-vandieman/InfraTrack-System) |
-| **Duplicate File Finder** | Personal Software Project | Individual Developer | Java, File I/O, Algorithms | In Portfolio |
+| Order | Project | Type / Context | Role | Technologies | Links |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| **1** | **CSI-Heart** | Academic / Research Group Project | Project Team Member / Developer | ESP32, Python, Wi-Fi CSI, Signal Processing, Machine Learning, MATLAB | [In Portfolio](#projects) |
+| **2** | **RoadReady Traffic Services** | CAPACITI / Demand Academy Collaborative Bootcamp Project | Project Team Member / Developer | Software Development, System Architecture, Web Technologies | [GitHub Repo](https://github.com/Siyamthanda101/RoadReady-Traffic-Services) |
+| **3** | **RoadReady Insights** | CAPACITI / Demand Academy Collaborative Bootcamp Project | Project Team Member / Developer | Web Application, Interactive UI, Data Insights | [Live Application](https://road-ready-pulse.lovable.app/) |
+| **4** | **InfraTrack System** | Academic Group Project *(Not official municipal system)* | Project Team Member / Developer | JavaScript, Node.js, MySQL, MongoDB | [GitHub Repo](https://github.com/allen-vandieman/InfraTrack-System) |
+| **5** | **Duplicate File Finder** | Personal Software Project | Individual Developer | Java, File I/O, Algorithms | [In Portfolio](#projects) |
+| **6** | **Embedded & IoT Systems Project** | Academic Embedded Systems Project | Hardware & Embedded Developer | Arduino Uno, ESP32, Embedded C++, Relay Drivers, IR Telemetry | [In Portfolio](#projects) |
 
 ---
 
@@ -88,8 +99,8 @@ A responsive, accessible personal portfolio website built with **React**, **Type
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Siyamthanda101/portfolio.git
-   cd portfolio
+   git clone https://github.com/Siyamthanda101/Siyamthanda_Mafuta_Portfolio.git
+   cd Siyamthanda_Mafuta_Portfolio
    ```
 
 2. **Install dependencies**:

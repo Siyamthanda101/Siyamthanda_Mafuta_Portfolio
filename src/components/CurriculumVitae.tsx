@@ -64,7 +64,7 @@ export default function CurriculumVitae() {
       title: 'InfraTrack System',
       type: 'Academic Group Project',
       role: 'Project Team Member / Developer',
-      description: 'Ticket management system modelled around public works maintenance workflows using backend and database technologies.',
+      description: 'A full-stack ticket and infrastructure maintenance management system modelled around the City of Johannesburg Public Works Department workflow (academic group project prototype).',
       github: 'https://github.com/allen-vandieman/InfraTrack-System',
     },
     {

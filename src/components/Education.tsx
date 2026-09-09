@@ -27,14 +27,14 @@ export default function Education() {
         {/* Education Cards Grid / Timeline */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left reveal-on-scroll">
           {EDUCATION_DATA.map((edu, index) => {
-            const isInProgress = edu.status.includes('In Progress');
+            const isCurrentlyCompleting = edu.status.toLowerCase().includes('completing') || edu.status.toLowerCase().includes('progress');
 
             return (
               <div
                 key={index}
                 id={`education-card-${index}`}
                 className={`p-7 rounded-2xl border transition-all duration-300 relative flex flex-col justify-between card-lift-hover ${
-                  isInProgress
+                  isCurrentlyCompleting
                     ? 'bg-gradient-to-br from-[#0c1424] via-[#0e1628] to-[#090e1a] border-blue-500/40 shadow-xl shadow-blue-950/20'
                     : 'bg-[#0b101c] border-slate-800 hover:border-slate-700 shadow-lg'
                 }`}
@@ -49,23 +49,23 @@ export default function Education() {
 
                     <span
                       className={`inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-full font-medium ${
-                        isInProgress
+                        isCurrentlyCompleting
                           ? 'bg-blue-950/80 text-blue-300 border border-blue-800'
                           : 'bg-emerald-950/80 text-emerald-300 border border-emerald-800'
                       }`}
                     >
-                      {isInProgress ? (
+                      {isCurrentlyCompleting ? (
                         <Clock className="w-3 h-3 text-blue-400" />
                       ) : (
                         <CheckCircle2 className="w-3 h-3 text-emerald-400" />
                       )}
-                      <span>{isInProgress ? 'In Progress (Currently Completing)' : 'Completed'}</span>
+                      <span>{isCurrentlyCompleting ? 'Currently Completing' : 'Completed'}</span>
                     </span>
                   </div>
 
-                  {/* Degree Title & Field */}
+                  {/* Degree Title */}
                   <h3 className="text-xl font-bold text-white tracking-tight mb-1">
-                    {edu.degree} in {edu.field}
+                    {edu.degree}
                   </h3>
 
                   {/* Institution & Location */}
