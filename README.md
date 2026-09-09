@@ -25,24 +25,32 @@ A responsive, accessible personal portfolio website built with **React**, **Type
 ## 🌟 Key Highlights & Included Sections
 
 1. **Professional Identity & About Me**:
-   - Academic background: Completed Diploma in Computer Engineering; currently completing Bachelor of Engineering Technology in Computer Engineering at CPUT.
+   - Academic background: Completed Diploma in Computer Engineering (2020–2024); currently completing Bachelor of Engineering Technology in Computer Engineering (2025–2026) at Cape Peninsula University of Technology (CPUT).
    - Core specializations across software engineering, networks, databases, embedded systems, and artificial intelligence.
 
 2. **CAPACITI Demand Academy Journey**:
    - Timeline and highlights of intensive technology training covering AI fundamentals, generative AI, Python for data science, prompt engineering, and collaborative software delivery.
 
 3. **Featured Projects Showcase**:
+   - 6 featured projects spanning research, web platforms, academic systems, and embedded engineering.
    - Detailed project cards with category badges, role declarations, verified tech stack tags, interactive modals, GitHub repositories, and live demo links.
 
 4. **Curriculum Vitae (CV)**:
    - Interactive on-page structured curriculum vitae.
    - Built-in embedded PDF document reader with fallback support.
    - One-click PDF download (`/documents/Siyamthanda_Mafuta_CV.pdf`) and print optimization.
+   - Regenerable at build time via `node scripts/generate_cv_pdf.js`.
 
-5. **Certifications & Accreditations**:
-   - Filterable view of professional credentials from Google, DeepLearning.AI, Stanford Online, IBM, and AWS.
+5. **Direct Contact & Working Message Dispatch**:
+   - Direct message delivery to `mafuta.siyamthand@gmail.com`.
+   - "Send via Mail App" and "Open in Gmail" quick composition buttons.
+   - One-click copy for email and phone number.
+   - Resilient ad-blocker / network fallback ensuring zero message loss.
 
-6. **Accessibility & User Experience**:
+6. **Certifications & Accreditations**:
+   - Filterable view of 10 professional credentials from Google, DeepLearning.AI, Stanford Online, IBM, and AWS.
+
+7. **Accessibility & User Experience**:
    - **Theme Engine**: Accessible Dark / Light mode toggle with `aria-pressed`, contrast compliance, and persistent preferences.
    - **Reduced Motion Support**: Full compliance with `prefers-reduced-motion: reduce` (WCAG 2.2.2 / 2.3.3) for smooth navigation or instant rendering.
    - Responsive design tailored for mobile, tablet, and desktop viewports.
@@ -129,6 +137,12 @@ A responsive, accessible personal portfolio website built with **React**, **Type
    ```bash
    npm run preview
    ```
+
+7. **Regenerate the Official Curriculum Vitae PDF**:
+   ```bash
+   node scripts/generate_cv_pdf.js
+   ```
+   Compiles the authoritative, ATS-friendly 2-page CV to `public/documents/Siyamthanda_Mafuta_CV.pdf`.
 
 ---
 
