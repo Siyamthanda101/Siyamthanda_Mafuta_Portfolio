@@ -132,7 +132,7 @@ async function generateCV() {
   y -= 16;
 
   // Contact line 1
-  const contact1 = 'Cape Town, Western Cape, South Africa | 073 066 0155 | mafuta.s101@gmail.com';
+  const contact1 = 'Cape Town, Western Cape, South Africa | 073 066 0155 | mafuta.siyamthand@gmail.com';
   const c1Width = helvetica.widthOfTextAtSize(contact1, 9.5);
   page1.drawText(contact1, {
     x: (pageWidth - c1Width) / 2,
@@ -360,7 +360,7 @@ async function generateCV() {
     font: helveticaBold,
     color: textMuted,
   });
-  const page2HeaderRight = 'mafuta.s101@gmail.com | 073 066 0155';
+  const page2HeaderRight = 'mafuta.siyamthand@gmail.com | 073 066 0155';
   page2.drawText(page2HeaderRight, {
     x: pageWidth - margin - helvetica.widthOfTextAtSize(page2HeaderRight, 8.5),
     y: y2,

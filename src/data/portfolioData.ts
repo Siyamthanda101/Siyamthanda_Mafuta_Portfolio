@@ -26,7 +26,7 @@ export const PERSONAL_INFO = {
   phone: '073 066 0155',
   phoneIntl: '+27 73 066 0155',
   phoneTel: 'tel:0730660155',
-  email: 'mafuta.s101@gmail.com',
+  email: 'mafuta.siyamthand@gmail.com',
   alternateEmail: 'mafuta.siyamthand@gmail.com',
   location: 'Cape Town, Western Cape, South Africa',
   photoUrl: '/professional_image.png',

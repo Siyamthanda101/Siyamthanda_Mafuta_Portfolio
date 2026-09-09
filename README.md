@@ -6,7 +6,7 @@
 [![CV Download](https://img.shields.io/badge/Curriculum%20Vitae-PDF%20Available-blue?style=for-the-badge&logo=adobe-acrobat-reader)](https://ais-pre-2bwr6mjpsf7abi2kfwcsi5-724108554600.europe-west2.run.app/documents/Siyamthanda_Mafuta_CV.pdf)
 
 > **Computer Engineering Graduate | Software, Networks & Intelligent Systems**  
-> Cape Town, Western Cape, South Africa • [mafuta.s101@gmail.com](mailto:mafuta.s101@gmail.com) • [GitHub: @Siyamthanda101](https://github.com/Siyamthanda101)
+> Cape Town, Western Cape, South Africa • [mafuta.siyamthand@gmail.com](mailto:mafuta.siyamthand@gmail.com) • [GitHub: @Siyamthanda101](https://github.com/Siyamthanda101)
 
 A responsive, accessible personal portfolio website built with **React**, **TypeScript**, **Tailwind CSS**, and **Vite**. Showcases hands-on academic research, collaborative software projects completed during the **CAPACITI Demand Academy**, industry-recognized AI/ML certifications, and a verified 2-page Curriculum Vitae.
 
@@ -179,7 +179,7 @@ A responsive, accessible personal portfolio website built with **React**, **Type
 - **Name**: Siyamthanda Mafuta
 - **Location**: Cape Town, Western Cape, South Africa
 - **Mobile**: [+27 73 066 0155](tel:0730660155) / `073 066 0155`
-- **Email**: [mafuta.s101@gmail.com](mailto:mafuta.s101@gmail.com)
+- **Email**: [mafuta.siyamthand@gmail.com](mailto:mafuta.siyamthand@gmail.com)
 - **LinkedIn**: [linkedin.com/in/siyamthanda-mafuta-0454b51ba](https://www.linkedin.com/in/siyamthanda-mafuta-0454b51ba/)
 - **GitHub**: [github.com/Siyamthanda101](https://github.com/Siyamthanda101)
 
