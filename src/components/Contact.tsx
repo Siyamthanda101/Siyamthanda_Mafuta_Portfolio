@@ -3,6 +3,7 @@ import {
   Mail, 
   Send, 
   MapPin, 
+  Phone,
   Copy, 
   Check, 
   ExternalLink, 
@@ -22,6 +23,15 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const handleCopyPhone = () => {
+    if (PERSONAL_INFO.phone) {
+      navigator.clipboard.writeText(PERSONAL_INFO.phone);
+      setCopiedPhone(true);
+      setTimeout(() => setCopiedPhone(false), 2000);
+    }
+  };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -136,6 +146,42 @@ export default function Contact() {
                   {PERSONAL_INFO.email}
                 </a>
               </div>
+
+              {/* Phone Card */}
+              {PERSONAL_INFO.phone && (
+                <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800/90 space-y-2">
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+                    <span className="flex items-center gap-1.5">
+                      <Phone className="w-3.5 h-3.5 text-blue-400" />
+                      <span>Phone / Mobile</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleCopyPhone}
+                      className="flex items-center gap-1 text-[11px] text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
+                      id="copy-phone-btn"
+                    >
+                      {copiedPhone ? (
+                        <>
+                          <Check className="w-3 h-3 text-emerald-400" />
+                          <span className="text-emerald-400">Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3 h-3" />
+                          <span>Copy</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  <a
+                    href={PERSONAL_INFO.phoneTel}
+                    className="block text-sm font-mono font-medium text-white hover:text-blue-300 transition-colors"
+                  >
+                    {PERSONAL_INFO.phone} <span className="text-xs text-slate-400 font-normal">({PERSONAL_INFO.phoneIntl})</span>
+                  </a>
+                </div>
+              )}
 
               {/* Location Card */}
               <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800/90 space-y-1">

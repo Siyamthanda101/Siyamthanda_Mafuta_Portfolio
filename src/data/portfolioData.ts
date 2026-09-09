@@ -22,20 +22,27 @@ export const CV_CONFIG: CVConfig = {
 export const PERSONAL_INFO = {
   name: 'Siyamthanda Mafuta',
   introLabel: "HELLO, I'M",
-  headline: 'Computer Engineering Student | Building Across Software, AI, Networks & Intelligent Systems',
-  supportingText:
-    'I am a Computer Engineering student with a Diploma in Computer Engineering and a strong interest in building practical technology solutions. My work and learning span software development, networking, embedded systems, artificial intelligence, machine learning, databases and cloud technologies.',
-  brandTags: [
-    'Software Development',
-    'Artificial Intelligence',
-    'Networking',
-    'Embedded Systems',
-  ],
+  headline: 'Computer Engineering Graduate | Software, Networks & Intelligent Systems',
+  phone: '073 066 0155',
+  phoneIntl: '+27 73 066 0155',
+  phoneTel: 'tel:0730660155',
+  email: 'mafuta.s101@gmail.com',
+  alternateEmail: 'mafuta.siyamthand@gmail.com',
   location: 'Cape Town, Western Cape, South Africa',
   photoUrl: '/professional_image.png',
-  email: 'mafuta.siyamthand@gmail.com',
   github: 'https://github.com/Siyamthanda101',
   linkedin: 'https://www.linkedin.com/in/siyamthanda-mafuta-0454b51ba/',
+  professionalSummary:
+    'Computer Engineering student with a completed Diploma in Computer Engineering and hands-on academic and project experience across software development, networking, databases, embedded systems and artificial intelligence. Currently developing practical solutions through university projects and the CAPACITI Demand Academy. Interested in graduate, internship and entry-level opportunities where I can contribute, learn and grow across software, IT infrastructure, networking and intelligent systems.',
+  supportingText:
+    'Computer Engineering student with a completed Diploma in Computer Engineering and hands-on academic and project experience across software development, networking, databases, embedded systems and artificial intelligence. Currently developing practical solutions through university projects and the CAPACITI Demand Academy. Interested in graduate, internship and entry-level opportunities where I can contribute, learn and grow across software, IT infrastructure, networking and intelligent systems.',
+  brandTags: [
+    'Software Development',
+    'Networks & Systems',
+    'Artificial Intelligence',
+    'Embedded Systems',
+    'Databases',
+  ],
 };
 
 export const ABOUT_PARAGRAPHS = [
@@ -567,12 +574,12 @@ export const CERTIFICATIONS: Certification[] = [
 
 export const EDUCATION_HISTORY: EducationItem[] = [
   {
-    degree: 'Bachelor of Engineering in Computer Engineering',
+    degree: 'Bachelor of Engineering Technology (BEng Tech), Computer Engineering',
     field: 'Computer Engineering',
     institution: 'Cape Peninsula University of Technology (CPUT)',
     location: 'Cape Town, South Africa',
     period: '2025 – 2026',
-    status: 'In Progress (Currently Completing)',
+    status: 'Currently completing',
     keyAreas: [
       'Advanced Computer Architecture & Digital Systems',
       'Embedded Microcontroller Interfacing & IoT',

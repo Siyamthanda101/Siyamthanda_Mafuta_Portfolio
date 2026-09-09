@@ -73,7 +73,7 @@ export interface EducationItem {
   institution: string;
   location: string;
   period: string;
-  status: 'In Progress (Currently Completing)' | 'Completed';
+  status: string;
   keyAreas: string[];
 }
 
