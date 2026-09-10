@@ -153,7 +153,7 @@ A responsive, accessible personal portfolio website built with **React**, **Type
 │   ├── documents/
 │   │   └── Siyamthanda_Mafuta_CV.pdf   # 2-Page CV PDF
 │   ├── images/                         # Project screenshots & assets
-│   └── professional_image.png          # Profile portrait
+│   └── user_profile_photo (local/URL)  # User uploaded real professional portrait
 ├── scripts/
 │   └── generate_cv_pdf.js              # Script to build high-fidelity CV PDF
 ├── src/

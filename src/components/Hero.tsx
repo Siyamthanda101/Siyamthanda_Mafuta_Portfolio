@@ -26,7 +26,7 @@ export default function Hero() {
       const saved = localStorage.getItem('siyamthanda_user_profile_photo');
       if (saved) return saved;
     }
-    return PERSONAL_INFO.photoUrl || '/professional_image.png';
+    return PERSONAL_INFO.photoUrl || null;
   });
   
   const [showPhotoModal, setShowPhotoModal] = useState(false);
@@ -102,8 +102,8 @@ export default function Hero() {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('siyamthanda_user_profile_photo');
     }
-    setCustomPhotoUrl('/professional_image.png');
-    setUploadSuccessMessage('Reverted to default image.');
+    setCustomPhotoUrl(null);
+    setUploadSuccessMessage('Photo removed. Ready for your uploaded photo.');
     setTimeout(() => setUploadSuccessMessage(null), 3000);
     setShowPhotoModal(false);
   };
