@@ -40,38 +40,40 @@ export default function CurriculumVitae() {
 
   const cvProjects = [
     {
-      title: 'CSI-Heart — Contactless Vital Sign Extraction via Wi-Fi Sensing',
-      type: 'Academic / Research Group Project',
-      role: 'Project Team Member / Developer',
-      description: 'Contributing to a system that explores Wi-Fi Channel State Information (CSI) for contactless vital-sign extraction using ESP32 devices, signal processing and machine-learning approaches.',
-      link: '#projects',
+      title: 'PromptCraft AI — AI Content Generator & Prompt Library',
+      type: 'CAPACITI Demand Academy — Individual Project',
+      role: 'Individual Developer',
+      description: 'An AI-powered content generation platform developed individually as part of the CAPACITI Demand Academy programme. The project combines a structured prompt library with an interactive AI content-generation workflow.',
+      github: 'https://github.com/Siyamthanda101/prompt-buddy-gen',
+      live: 'https://preview--prompt-buddy-gen.lovable.app/',
+    },
+    {
+      title: 'Varsity Path — Digital Varsity Guidance Experience',
+      type: 'CAPACITI Demand Academy — Group Project',
+      role: 'Researcher & Backend/Data Handling Contributor',
+      description: 'A collaborative CAPACITI Demand Academy project focused on supporting students through a digital varsity guidance experience. Contributed as a researcher and supported the team with data handling and backend-related work.',
+      github: 'https://github.com/RatiloeMbonani/Varsity_Path',
     },
     {
       title: 'RoadReady Traffic Services',
-      type: 'CAPACITI / Demand Academy Collaborative Project',
+      type: 'CAPACITI Demand Academy — Collaborative Project',
       role: 'Project Team Member / Developer',
       description: 'Collaborative software project focused on digital traffic service requests and related operational workflows.',
       github: 'https://github.com/Siyamthanda101/RoadReady-Traffic-Services',
     },
     {
       title: 'RoadReady Insights',
-      type: 'CAPACITI / Demand Academy Collaborative Project',
+      type: 'CAPACITI Demand Academy — Collaborative Project',
       role: 'Project Team Member / Developer',
       description: 'Interactive platform for sharing traffic service experiences and insights.',
       live: 'https://road-ready-pulse.lovable.app/',
     },
     {
       title: 'InfraTrack System',
-      type: 'Academic Group Project',
+      type: 'University Academic Group Project',
       role: 'Project Team Member / Developer',
       description: 'A full-stack ticket and infrastructure maintenance management system modelled around the City of Johannesburg Public Works Department workflow (academic group project prototype).',
       github: 'https://github.com/allen-vandieman/InfraTrack-System',
-    },
-    {
-      title: 'Duplicate File Finder',
-      type: 'Personal Software Project',
-      role: 'Individual Developer',
-      description: 'Java-based application developed to identify and manage duplicate files.',
     },
   ];
 

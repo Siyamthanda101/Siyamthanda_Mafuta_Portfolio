@@ -291,24 +291,24 @@ async function generateCV() {
 
   const page1Projects = [
     {
-      title: 'CSI-Heart - Contactless Vital Sign Extraction via Wi-Fi Sensing',
-      role: 'Academic / Research Group Project | Project Team Member / Developer',
-      desc: 'Contributing to a system that explores Wi-Fi Channel State Information (CSI) for contactless vital-sign extraction using ESP32 devices, signal processing and machine-learning approaches.',
+      title: 'PromptCraft AI - AI Content Generator & Prompt Library',
+      role: 'CAPACITI Demand Academy — Individual Project | Individual Developer',
+      desc: 'An AI-powered content generation platform developed individually as part of the CAPACITI Demand Academy programme. Combines a structured prompt library with interactive generation workflows.',
+    },
+    {
+      title: 'Varsity Path - Digital Varsity Guidance Experience',
+      role: 'CAPACITI Demand Academy — Group Project | Researcher & Backend/Data Handling Contributor',
+      desc: 'A collaborative CAPACITI Demand Academy project supporting students through a digital varsity guidance experience. Contributed as researcher and supported the team with data handling and backend-related work.',
     },
     {
       title: 'RoadReady Traffic Services',
-      role: 'CAPACITI / Demand Academy Collaborative Project | Project Team Member / Developer',
+      role: 'CAPACITI Demand Academy — Collaborative Project | Project Team Member / Developer',
       desc: 'Collaborative software project focused on digital traffic service requests and related operational workflows.',
     },
     {
       title: 'RoadReady Insights',
-      role: 'CAPACITI / Demand Academy Collaborative Project | Project Team Member / Developer',
+      role: 'CAPACITI Demand Academy — Collaborative Project | Project Team Member / Developer',
       desc: 'Interactive platform for sharing traffic service experiences and insights.',
-    },
-    {
-      title: 'InfraTrack System',
-      role: 'Academic Group Project | Project Team Member / Developer',
-      desc: 'A full-stack ticket and infrastructure maintenance management system modelled around the City of Johannesburg Public Works Department workflow (academic prototype).',
     },
   ];
 
@@ -377,9 +377,9 @@ async function generateCV() {
   });
   y2 -= 18;
 
-  // Remaining Selected Project on Page 2: Duplicate File Finder
+  // Remaining Selected Project on Page 2: InfraTrack System
   drawDiamond(page2, margin + 4, y2 + 3, 3, primaryNavy);
-  page2.drawText('Duplicate File Finder', {
+  page2.drawText('InfraTrack System', {
     x: margin + 14,
     y: y2,
     size: 10,
@@ -388,7 +388,7 @@ async function generateCV() {
   });
   y2 -= 13;
 
-  page2.drawText('Personal Software Project | Individual Developer', {
+  page2.drawText('University Academic Group Project | Project Team Member / Developer', {
     x: margin + 14,
     y: y2,
     size: 9,
@@ -397,8 +397,8 @@ async function generateCV() {
   });
   y2 -= 12;
 
-  const dffLines = wrapText('Java-based application developed to identify and manage duplicate files.', helvetica, 9.5, contentWidth - 14);
-  for (const line of dffLines) {
+  const infraLines = wrapText('A full-stack ticket and infrastructure maintenance management system modelled around the City of Johannesburg Public Works Department workflow (academic prototype).', helvetica, 9.5, contentWidth - 14);
+  for (const line of infraLines) {
     page2.drawText(line, {
       x: margin + 14,
       y: y2,

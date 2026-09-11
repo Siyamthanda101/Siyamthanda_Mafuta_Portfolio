@@ -29,49 +29,55 @@ export default function Projects() {
 
   const getProjectIcon = (id: string) => {
     switch (id) {
-      case 'csi-heart':
-        return Activity;
+      case 'promptcraft-ai':
+        return Sparkles;
+      case 'varsity-path':
+        return GitBranch;
       case 'roadready':
         return Car;
       case 'roadready-insights':
         return Globe;
       case 'infratrack':
         return Layers;
-      case 'duplicate-file-finder':
-        return FileSearch;
-      case 'embedded-iot-project':
-        return Cpu;
       default:
         return FolderGit2;
     }
   };
 
   const getProjectTypeBadge = (projectType: string) => {
-    if (projectType.includes('CAPACITI')) {
-      return {
-        bg: 'bg-purple-950/80 text-purple-300 border-purple-800/60',
-        dot: 'bg-purple-400',
-        short: 'CAPACITI Collaborative Project'
-      };
-    }
-    if (projectType.includes('Personal')) {
+    if (projectType.includes('Individual')) {
       return {
         bg: 'bg-emerald-950/80 text-emerald-300 border-emerald-800/60',
         dot: 'bg-emerald-400',
-        short: 'Personal Software Project'
+        context: 'CAPACITI DEMAND ACADEMY',
+        type: 'Individual Project',
+        short: 'CAPACITI • Individual Project',
       };
     }
-    if (projectType.includes('Research')) {
+    if (projectType.includes('Group Project') && projectType.includes('CAPACITI')) {
       return {
-        bg: 'bg-blue-950/80 text-blue-300 border-blue-800/60',
-        dot: 'bg-blue-400',
-        short: 'Academic / Research Group'
+        bg: 'bg-indigo-950/80 text-indigo-300 border-indigo-800/60',
+        dot: 'bg-indigo-400',
+        context: 'CAPACITI DEMAND ACADEMY',
+        type: 'Group Project',
+        short: 'CAPACITI • Group Project',
+      };
+    }
+    if (projectType.includes('Collaborative') || projectType.includes('CAPACITI')) {
+      return {
+        bg: 'bg-purple-950/80 text-purple-300 border-purple-800/60',
+        dot: 'bg-purple-400',
+        context: 'CAPACITI DEMAND ACADEMY',
+        type: 'Collaborative Project',
+        short: 'CAPACITI • Collaborative Project',
       };
     }
     return {
       bg: 'bg-sky-950/80 text-sky-300 border-sky-800/60',
       dot: 'bg-sky-400',
-      short: 'Academic Group Project'
+      context: 'UNIVERSITY',
+      type: 'Academic Group Project',
+      short: 'University • Academic Group',
     };
   };
 
@@ -97,7 +103,7 @@ export default function Projects() {
             Featured Engineering Projects
           </h2>
           <p className="mt-3 text-slate-300 text-base sm:text-lg leading-relaxed">
-            Engineering implementations across contactless Wi-Fi sensing, collaborative traffic platforms, municipal ticket tracking, desktop utilities and embedded IoT systems — with explicit attribution of project classifications, team roles and verified individual contributions.
+            Engineering implementations across AI content generation, student pathway guidance, collaborative traffic platforms, and public infrastructure systems — with explicit attribution of project classifications, team roles and verified individual contributions.
           </p>
         </div>
 
@@ -203,11 +209,14 @@ export default function Projects() {
                         <Users className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                         <div>
                           <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
-                            Project Type
+                            Project Classification
                           </span>
-                          <span className="text-xs font-semibold text-slate-200">
-                            {project.projectType}
-                          </span>
+                          <div className="text-xs font-semibold text-slate-200">
+                            <span className="text-[10px] font-mono uppercase text-blue-400 block tracking-wider font-bold">
+                              {typeStyle.context}
+                            </span>
+                            <span>{typeStyle.type}</span>
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-start gap-2 pt-1 border-t border-slate-800/60">
@@ -408,9 +417,14 @@ export default function Projects() {
                       <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block">
                         Project Classification
                       </span>
-                      <p className="text-sm text-slate-200 font-medium">
-                        {selectedProject.projectType}
-                      </p>
+                      <div className="mt-0.5">
+                        <span className="text-xs font-mono uppercase tracking-wider text-blue-400 font-bold block">
+                          {getProjectTypeBadge(selectedProject.projectType).context}
+                        </span>
+                        <p className="text-sm text-slate-200 font-medium">
+                          {getProjectTypeBadge(selectedProject.projectType).type}
+                        </p>
+                      </div>
                     </div>
                   </div>
 

@@ -25,6 +25,7 @@ export interface Project {
   id: string;
   title: string;
   tagline: string;
+  subtitle?: string;
   description: string;
   technologies: string[];
   isFlagship?: boolean;

@@ -61,12 +61,11 @@ A responsive, accessible personal portfolio website built with **React**, **Type
 
 | Order | Project | Type / Context | Role | Technologies | Links |
 | :---: | :--- | :--- | :--- | :--- | :--- |
-| **1** | **CSI-Heart** | Academic / Research Group Project | Project Team Member / Developer | ESP32, Python, Wi-Fi CSI, Signal Processing, Machine Learning, MATLAB | [In Portfolio](#projects) |
-| **2** | **RoadReady Traffic Services** | CAPACITI / Demand Academy Collaborative Bootcamp Project | Project Team Member / Developer | Software Development, System Architecture, Web Technologies | [GitHub Repo](https://github.com/Siyamthanda101/RoadReady-Traffic-Services) |
-| **3** | **RoadReady Insights** | CAPACITI / Demand Academy Collaborative Bootcamp Project | Project Team Member / Developer | Web Application, Interactive UI, Data Insights | [Live Application](https://road-ready-pulse.lovable.app/) |
-| **4** | **InfraTrack System** | Academic Group Project *(Not official municipal system)* | Project Team Member / Developer | JavaScript, Node.js, MySQL, MongoDB | [GitHub Repo](https://github.com/allen-vandieman/InfraTrack-System) |
-| **5** | **Duplicate File Finder** | Personal Software Project | Individual Developer | Java, File I/O, Algorithms | [In Portfolio](#projects) |
-| **6** | **Embedded & IoT Systems Project** | Academic Embedded Systems Project | Hardware & Embedded Developer | Arduino Uno, ESP32, Embedded C++, Relay Drivers, IR Telemetry | [In Portfolio](#projects) |
+| **1** | **PromptCraft AI** | CAPACITI Demand Academy — Individual Project | Individual Developer | Generative AI, Prompt Engineering, Interactive UI, Web Technologies | [GitHub Repo](https://github.com/Siyamthanda101/prompt-buddy-gen) • [Live Demo](https://preview--prompt-buddy-gen.lovable.app/) |
+| **2** | **Varsity Path** | CAPACITI Demand Academy — Group Project | Researcher & Backend/Data Handling Contributor | Data Handling, Backend Development, Academic Research, Web Technologies | [GitHub Repo](https://github.com/RatiloeMbonani/Varsity_Path) |
+| **3** | **RoadReady Traffic Services** | CAPACITI Demand Academy — Collaborative Project | Project Team Member / Developer | Software Development, System Architecture, Web Technologies | [GitHub Repo](https://github.com/Siyamthanda101/RoadReady-Traffic-Services) |
+| **4** | **RoadReady Insights** | CAPACITI Demand Academy — Collaborative Project | Project Team Member / Developer | Web Application, Interactive UI, Data Insights | [Live Application](https://road-ready-pulse.lovable.app/) |
+| **5** | **InfraTrack System** | University Academic Group Project *(Not official municipal system)* | Project Team Member / Developer | JavaScript, Node.js, MySQL, MongoDB | [GitHub Repo](https://github.com/allen-vandieman/InfraTrack-System) |
 
 ---
 
