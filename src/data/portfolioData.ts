@@ -45,6 +45,18 @@ export const PERSONAL_INFO = {
   ],
 };
 
+/**
+ * Resolves the professional/profile photograph:
+ * Retrieves the currently displayed profile photo from the existing reference / storage.
+ */
+export const getProfilePhoto = (): string | null => {
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('siyamthanda_user_profile_photo');
+    if (saved) return saved;
+  }
+  return PERSONAL_INFO.photoUrl || null;
+};
+
 export const ABOUT_PARAGRAPHS = [
   'I am a Computer Engineering graduate holding a completed Diploma in Computer Engineering, currently completing my Bachelor of Engineering Technology in Computer Engineering at the Cape Peninsula University of Technology (CPUT). My technical interests span software development, networking, systems administration, cybersecurity, embedded systems, artificial intelligence, machine learning, databases and cloud technologies.',
   'Through my academic work, personal projects and professional development journey, I have focused on turning technical concepts into practical solutions. I enjoy understanding how systems work, troubleshooting problems and continuously developing my technical abilities.',

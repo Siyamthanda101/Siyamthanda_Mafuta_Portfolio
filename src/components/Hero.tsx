@@ -1,112 +1,14 @@
-import { useState, useRef, type FormEvent, type ChangeEvent, type DragEvent } from 'react';
+import { useState } from 'react';
 import { 
   ArrowRight, 
   Mail, 
   MapPin, 
-  Code, 
-  Network, 
-  Sparkles, 
-  Cpu, 
-  Camera, 
-  CheckCircle2,
-  ExternalLink,
-  ShieldCheck,
-  Upload,
-  Image as ImageIcon,
-  Trash2,
-  X,
-  Check,
   Download
 } from 'lucide-react';
-import { PERSONAL_INFO, CV_PATH, CV_FILENAME } from '../data/portfolioData.ts';
+import { PERSONAL_INFO, CV_PATH, CV_FILENAME, getProfilePhoto } from '../data/portfolioData.ts';
 
 export default function Hero() {
-  const [customPhotoUrl, setCustomPhotoUrl] = useState<string | null>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('siyamthanda_user_profile_photo');
-      if (saved) return saved;
-    }
-    return PERSONAL_INFO.photoUrl || null;
-  });
-  
-  const [showPhotoModal, setShowPhotoModal] = useState(false);
-  const [tempInputUrl, setTempInputUrl] = useState('');
-  const [isDragging, setIsDragging] = useState(false);
-  const [uploadSuccessMessage, setUploadSuccessMessage] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleFileProcess = (file: File) => {
-    if (!file.type.startsWith('image/')) {
-      alert('Please upload a valid image file (.png, .jpg, .jpeg, or .webp).');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      if (result) {
-        setCustomPhotoUrl(result);
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('siyamthanda_user_profile_photo', result);
-        }
-        setUploadSuccessMessage('Original photo loaded and applied successfully!');
-        setTimeout(() => setUploadSuccessMessage(null), 4000);
-        setShowPhotoModal(false);
-      }
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      handleFileProcess(file);
-    }
-  };
-
-  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) {
-      handleFileProcess(file);
-    }
-  };
-
-  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(false);
-  };
-
-  const handleUrlSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (tempInputUrl.trim()) {
-      const url = tempInputUrl.trim();
-      setCustomPhotoUrl(url);
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('siyamthanda_user_profile_photo', url);
-      }
-      setUploadSuccessMessage('Photo URL applied successfully!');
-      setTimeout(() => setUploadSuccessMessage(null), 4000);
-      setShowPhotoModal(false);
-      setTempInputUrl('');
-    }
-  };
-
-  const handleResetPhoto = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('siyamthanda_user_profile_photo');
-    }
-    setCustomPhotoUrl(null);
-    setUploadSuccessMessage('Photo removed. Ready for your uploaded photo.');
-    setTimeout(() => setUploadSuccessMessage(null), 3000);
-    setShowPhotoModal(false);
-  };
+  const [profilePhoto, setProfilePhoto] = useState<string | null>(() => getProfilePhoto());
 
   const scrollTo = (targetId: string) => {
     const element = document.getElementById(targetId);
@@ -269,12 +171,7 @@ export default function Hero() {
               {/* Rectangular container with softly rounded corners */}
               <div 
                 id="hero-profile-container"
-                onDrop={handleDrop}
-                onDragOver={handleDragOver}
-                onDragLeave={handleDragLeave}
-                className={`relative bg-gradient-to-b from-[#0e1627] to-[#0a0f1d] p-3.5 rounded-2xl border transition-all duration-200 shadow-xl shadow-black/40 backdrop-blur-xl group ${
-                  isDragging ? 'border-blue-500 ring-2 ring-blue-500/30' : 'border-slate-800'
-                }`}
+                className="relative bg-gradient-to-b from-[#0e1627] to-[#0a0f1d] p-3.5 rounded-2xl border border-slate-800 transition-all duration-200 shadow-xl shadow-black/40 backdrop-blur-xl group"
               >
                 {/* Subtle technical connection points & corner boundary lines */}
                 <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t border-l border-blue-400/80"></div>
@@ -288,60 +185,23 @@ export default function Hero() {
                     <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                     <span className="text-slate-300">PORTRAIT CONTAINER</span>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setShowPhotoModal(true)}
-                    className="text-[10px] font-mono text-blue-400 hover:text-blue-300 flex items-center gap-1 cursor-pointer transition-colors"
-                    title="Upload or Change Photo"
-                  >
-                    <Upload className="w-3 h-3" />
-                    <span>CHANGE PHOTO</span>
-                  </button>
+                  <span className="text-[10px] font-mono text-blue-400">CPUT // CAPACITI</span>
                 </div>
 
-                {/* Drag-over overlay */}
-                {isDragging && (
-                  <div className="absolute inset-0 z-30 bg-blue-950/90 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-blue-400">
-                    <Upload className="w-10 h-10 text-blue-400 mb-2 animate-bounce" />
-                    <p className="text-sm font-bold text-white">Drop your original photo here</p>
-                    <p className="text-xs text-blue-200 mt-1">Accepts PNG, JPG, JPEG, WEBP</p>
-                  </div>
-                )}
-
-                {/* Success notification */}
-                {uploadSuccessMessage && (
-                  <div className="mb-2 p-2 rounded-lg bg-emerald-950/80 border border-emerald-500/50 flex items-center gap-2 text-xs text-emerald-300 animate-in fade-in duration-200">
-                    <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>{uploadSuccessMessage}</span>
-                  </div>
-                )}
-
-                {/* Primary Image / Clearly Temporary Neutral Placeholder */}
+                {/* Primary Image / Permanent Profile Presentation */}
                 <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-b from-slate-900 to-[#0b1222] border border-slate-800/90 flex flex-col items-center justify-between p-6 text-center">
                   
-                  {customPhotoUrl ? (
-                    <div className="relative w-full h-full group/photo">
+                  {profilePhoto ? (
+                    <div className="relative w-full h-full">
                       <img
-                        src={customPhotoUrl}
+                        src={profilePhoto}
                         alt="Siyamthanda Mafuta - Professional Portrait"
                         className="w-full h-full object-cover object-top rounded-lg"
                         referrerPolicy="no-referrer"
                         onError={() => {
-                          setCustomPhotoUrl(null);
+                          setProfilePhoto(null);
                         }}
                       />
-                      {/* Action buttons on hover */}
-                      <div className="absolute top-2 right-2 flex items-center gap-1.5 opacity-90 group-hover/photo:opacity-100 transition-opacity">
-                        <button
-                          type="button"
-                          onClick={() => setShowPhotoModal(true)}
-                          className="p-1.5 rounded-md bg-slate-950/80 hover:bg-slate-900 border border-slate-700/80 text-slate-300 hover:text-white transition-colors cursor-pointer shadow-lg"
-                          title="Upload / Change Photo"
-                          aria-label="Upload or change photo"
-                        >
-                          <Camera className="w-3.5 h-3.5 text-blue-400" />
-                        </button>
-                      </div>
                     </div>
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-between py-2">
@@ -361,24 +221,19 @@ export default function Hero() {
                         </div>
                         <div className="space-y-1">
                           <p className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-400">
-                            Profile Portrait Frame
+                            Siyamthanda Mafuta
                           </p>
                           <p className="text-xs text-slate-400 max-w-[220px] mx-auto leading-relaxed">
-                            Upload your original graduation photograph directly.
+                            Computer Engineering Graduate
                           </p>
                         </div>
                       </div>
 
-                      {/* Easily upload original photo button */}
-                      <button
-                        type="button"
-                        onClick={() => setShowPhotoModal(true)}
-                        className="inline-flex items-center gap-1.5 text-xs text-slate-200 hover:text-white px-3.5 py-1.5 rounded-md bg-blue-600 hover:bg-blue-500 font-semibold transition-colors cursor-pointer shadow-md"
-                        id="hero-toggle-photo-input-btn"
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>Add Original Photo</span>
-                      </button>
+                      <div className="w-full text-center">
+                        <span className="text-[10px] font-mono text-slate-500">
+                          SOFTWARE • NETWORKS • AI
+                        </span>
+                      </div>
                     </div>
                   )}
 
@@ -393,125 +248,6 @@ export default function Hero() {
                     </span>
                   </div>
                 </div>
-
-                {/* Photo Upload & Change Modal */}
-                {showPhotoModal && (
-                  <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
-                    role="dialog"
-                    aria-modal="true"
-                    aria-labelledby="photo-modal-title"
-                    onClick={() => setShowPhotoModal(false)}
-                  >
-                    <div
-                      className="bg-[#0b111e] border border-blue-500/40 rounded-2xl max-w-lg w-full p-6 shadow-2xl text-left relative"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {/* Close button */}
-                      <button
-                        type="button"
-                        onClick={() => setShowPhotoModal(false)}
-                        className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg bg-slate-900 border border-slate-800 cursor-pointer transition-colors"
-                        aria-label="Close dialog"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-
-                      <div className="flex items-center gap-2.5 text-xs font-mono text-blue-400 mb-2">
-                        <Camera className="w-4 h-4" />
-                        <span>PROFILE PHOTO MANAGER</span>
-                      </div>
-
-                      <h3 id="photo-modal-title" className="text-xl font-bold text-white mb-1">
-                        Use Original Profile Photograph
-                      </h3>
-                      <p className="text-xs text-slate-400 mb-5 leading-relaxed">
-                        Add your unaltered original photo directly. The image will be applied exactly as provided without filters, edits, or regeneration.
-                      </p>
-
-                      {/* Hidden File Input */}
-                      <input
-                        type="file"
-                        ref={fileInputRef}
-                        onChange={handleFileChange}
-                        accept="image/png, image/jpeg, image/jpg, image/webp"
-                        className="hidden"
-                      />
-
-                      {/* Primary Option: Drag and Drop or Browse File */}
-                      <div className="space-y-4">
-                        <div
-                          onClick={() => fileInputRef.current?.click()}
-                          onDrop={handleDrop}
-                          onDragOver={handleDragOver}
-                          onDragLeave={handleDragLeave}
-                          className="border-2 border-dashed border-slate-700 hover:border-blue-500 rounded-xl p-6 text-center bg-slate-900/60 hover:bg-slate-900 cursor-pointer transition-all group/drop"
-                        >
-                          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover/drop:scale-110 transition-transform">
-                            <Upload className="w-6 h-6" />
-                          </div>
-                          <p className="text-sm font-semibold text-slate-200 group-hover/drop:text-blue-300">
-                            Click to browse or drop your original photo here
-                          </p>
-                          <p className="text-xs text-slate-400 mt-1 font-mono">
-                            Supports PNG, JPG, JPEG, WEBP (stored locally in high resolution)
-                          </p>
-                        </div>
-
-                        <div className="relative flex items-center justify-center">
-                          <div className="border-t border-slate-800 w-full"></div>
-                          <span className="bg-[#0b111e] px-3 text-[11px] font-mono text-slate-500 uppercase">
-                            Or Use Direct URL
-                          </span>
-                        </div>
-
-                        {/* Secondary Option: Direct Image URL */}
-                        <form onSubmit={handleUrlSubmit} className="space-y-2">
-                          <label htmlFor="photo-url-input" className="block text-xs font-mono text-slate-400">
-                            Image URL:
-                          </label>
-                          <div className="flex gap-2">
-                            <input
-                              id="photo-url-input"
-                              type="url"
-                              placeholder="https://.../my-photo.jpg"
-                              value={tempInputUrl}
-                              onChange={(e) => setTempInputUrl(e.target.value)}
-                              className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                            />
-                            <button
-                              type="submit"
-                              className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold cursor-pointer transition-colors"
-                            >
-                              Apply URL
-                            </button>
-                          </div>
-                        </form>
-
-                        {/* Reset / Actions */}
-                        <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
-                          <button
-                            type="button"
-                            onClick={handleResetPhoto}
-                            className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-rose-400 transition-colors cursor-pointer"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                            <span>Reset to Default</span>
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={() => setShowPhotoModal(false)}
-                            className="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors cursor-pointer"
-                          >
-                            Close
-                          </button>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                )}
 
                 {/* Subtle footer info */}
                 <div className="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-500">

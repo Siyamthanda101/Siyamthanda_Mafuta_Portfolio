@@ -7,7 +7,7 @@ import {
   Cloud, 
   ArrowDown
 } from 'lucide-react';
-import { ABOUT_PARAGRAPHS } from '../data/portfolioData.ts';
+import { ABOUT_PARAGRAPHS, getProfilePhoto } from '../data/portfolioData.ts';
 
 interface JourneyNode {
   title: string;
@@ -56,6 +56,8 @@ const JOURNEY_NODES: JourneyNode[] = [
 ];
 
 export default function About() {
+  const profilePhoto = getProfilePhoto();
+
   return (
     <section
       id="about"
@@ -94,7 +96,15 @@ export default function About() {
 
               {/* Verified academic context callout */}
               <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
-                <span className="flex items-center gap-1.5 text-blue-300 font-medium">
+                <span className="flex items-center gap-2 text-blue-300 font-medium">
+                  {profilePhoto && (
+                    <img 
+                      src={profilePhoto} 
+                      alt="Siyamthanda Mafuta" 
+                      className="w-5 h-5 rounded-full object-cover object-top border border-blue-400/50 shadow-sm shrink-0"
+                      referrerPolicy="no-referrer"
+                    />
+                  )}
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
                   Based in Cape Town, South Africa
                 </span>
