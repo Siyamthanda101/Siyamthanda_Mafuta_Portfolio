@@ -99,7 +99,7 @@ export default function Certifications() {
             Certifications &amp; Courses
           </h2>
           <p className="mt-3 text-slate-300 text-base sm:text-lg leading-relaxed">
-            15 verified learning achievements completed through Coursera in August 2026.
+            {totalCount} verified learning achievements completed through Coursera.
           </p>
         </div>
 
@@ -376,11 +376,12 @@ export default function Certifications() {
                         </h3>
                       </div>
 
-                      {/* Completion Date */}
-                      <div className="flex items-center gap-2 text-xs text-slate-400 font-mono pt-1">
-                        <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                        <span>Completed: <strong className="text-slate-300">{cert.completedDate}</strong></span>
-                      </div>
+                      {cert.completedDate && (
+                        <div className="flex items-center gap-2 text-xs text-slate-400 font-mono pt-1">
+                          <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <span>Completed: <strong className="text-slate-300">{cert.completedDate}</strong></span>
+                        </div>
+                      )}
                     </div>
                   </div>
 

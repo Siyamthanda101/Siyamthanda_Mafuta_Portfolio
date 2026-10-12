@@ -158,7 +158,7 @@ async function generateCV() {
   // --- SECTION: PROFESSIONAL SUMMARY ---
   y = drawSectionHeading(page1, 'PROFESSIONAL SUMMARY', y);
   const summaryText =
-    'Computer Engineering student with a completed Diploma in Computer Engineering and hands-on academic and project experience across software development, networking, databases, embedded systems and artificial intelligence. Currently developing practical solutions through university projects and the CAPACITI Demand Academy. Interested in graduate, internship and entry-level opportunities where I can contribute, learn and grow across software, IT infrastructure, networking and intelligent systems.';
+    'Computer Engineering student with a completed Diploma in Computer Engineering and four months of professional development and collaborative project experience through the CAPACITI Demand Academy. Experience spans software development, networking, databases, embedded systems and artificial intelligence, supported by academic and personal projects. Interested in opportunities to contribute and grow across software, IT infrastructure, networking and intelligent systems.';
   
   const summaryLines = wrapText(summaryText, helvetica, 9.5, contentWidth);
   for (const line of summaryLines) {
@@ -179,7 +179,7 @@ async function generateCV() {
   const skills = [
     {
       category: 'Software & Development',
-      items: 'Python, Java, JavaScript, Node.js, HTML, CSS, Backend Development',
+      items: 'Python, Java, JavaScript, Node.js, Express, React, HTML, CSS, Backend Development',
     },
     {
       category: 'Networks & Systems',
@@ -259,8 +259,8 @@ async function generateCV() {
   y -= 14;
 
   const capacitiBullets = [
-    'Participating in an intensive technology development programme focused on artificial intelligence, machine learning, software development and practical project work.',
-    'Completed learning modules and certifications covering AI fundamentals, generative AI, Python for data science, prompt engineering and machine learning concepts.',
+    'Four months of professional development and collaborative project experience through the CAPACITI Demand Academy.',
+    'Completed IBM courses in back-end development with Node.js and Express, and front-end development with React, alongside learning in AI, Python and machine learning.',
     'Collaborating on bootcamp projects and building a professional portfolio to showcase technical growth and project experience.',
   ];
 
@@ -461,6 +461,8 @@ async function generateCV() {
     'Generative AI with Large Language Models - DeepLearning.AI / AWS',
     'Python for Data Science, AI & Development - IBM',
     'Introduction to Artificial Intelligence (AI) - IBM',
+    'Developing Back-End Apps with Node.js and Express - IBM',
+    'Developing Front-End Apps with React - IBM',
     'Additional CAPACITI learning: AI For Everyone, Prompt Engineering, Responsible AI and AI productivity courses',
   ];
 

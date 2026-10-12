@@ -84,6 +84,8 @@ export default function CurriculumVitae() {
     { title: 'Generative AI with Large Language Models', provider: 'DeepLearning.AI / AWS' },
     { title: 'Python for Data Science, AI & Development', provider: 'IBM' },
     { title: 'Introduction to Artificial Intelligence (AI)', provider: 'IBM' },
+    { title: 'Developing Back-End Apps with Node.js and Express', provider: 'IBM' },
+    { title: 'Developing Front-End Apps with React', provider: 'IBM' },
     { title: 'Additional CAPACITI learning: AI For Everyone, Prompt Engineering, Responsible AI and AI productivity courses', provider: 'CAPACITI' },
   ];
 
@@ -304,7 +306,7 @@ export default function CurriculumVitae() {
                     <span className="text-blue-400">❖</span> Software & Development
                   </h4>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    Python, Java, JavaScript, Node.js, HTML, CSS, Backend Development
+                    Python, Java, JavaScript, Node.js, Express, React, HTML, CSS, Backend Development
                   </p>
                 </div>
 
@@ -363,10 +365,10 @@ export default function CurriculumVitae() {
 
                 <ul className="space-y-2 text-xs text-slate-300 list-disc list-inside">
                   <li>
-                    Participating in an intensive technology development programme focused on artificial intelligence, machine learning, software development and practical project work.
+                    Four months of professional development and collaborative project experience through the CAPACITI Demand Academy.
                   </li>
                   <li>
-                    Completed learning modules and certifications covering AI fundamentals, generative AI, Python for data science, prompt engineering and machine learning concepts.
+                    Completed IBM courses in back-end development with Node.js and Express, and front-end development with React, alongside learning in AI, Python and machine learning.
                   </li>
                   <li>
                     Collaborating on bootcamp projects and building a professional portfolio to showcase technical growth and project experience.

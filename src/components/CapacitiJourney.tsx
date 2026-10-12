@@ -34,7 +34,7 @@ export default function CapacitiJourney() {
             My CAPACITI Journey
           </h2>
           <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
-            A structured month-by-month learning and professional development pathway exploring practical artificial intelligence, machine learning engineering, and responsible technical workflows.
+            Four months of professional development spanning artificial intelligence, collaborative projects, and software engineering.
           </p>
         </div>
 

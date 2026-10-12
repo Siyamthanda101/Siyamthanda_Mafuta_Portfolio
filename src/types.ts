@@ -52,7 +52,7 @@ export interface Certification {
   title: string;
   classification: AchievementClassification;
   provider: string;
-  completedDate: string;
+  completedDate?: string;
   previewImage: string;
   verificationUrl: string;
   buttonLabel: 'View Badge' | 'View Certificate';

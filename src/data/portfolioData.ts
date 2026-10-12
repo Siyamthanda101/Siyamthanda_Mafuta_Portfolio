@@ -33,9 +33,9 @@ export const PERSONAL_INFO = {
   github: 'https://github.com/Siyamthanda101',
   linkedin: 'https://www.linkedin.com/in/siyamthanda-mafuta-0454b51ba/',
   professionalSummary:
-    'Computer Engineering graduate with a completed Diploma in Computer Engineering, currently completing a Bachelor of Engineering Technology in Computer Engineering at CPUT, with hands-on academic, personal and collaborative project experience across software development, networking, databases, embedded systems and artificial intelligence. Currently developing practical solutions through university projects and the CAPACITI Demand Academy. Interested in graduate, internship and entry-level opportunities where I can contribute, learn and grow across software, IT infrastructure, networking and intelligent systems.',
+    'Computer Engineering graduate with a completed Diploma in Computer Engineering, currently completing a Bachelor of Engineering Technology in Computer Engineering at CPUT, and four months of professional development and collaborative project experience through the CAPACITI Demand Academy. Hands-on experience spans software development, networking, databases, embedded systems and artificial intelligence, supported by academic and personal projects. Interested in opportunities to contribute and grow across software, IT infrastructure, networking and intelligent systems.',
   supportingText:
-    'Computer Engineering graduate with a completed Diploma in Computer Engineering, currently completing a Bachelor of Engineering Technology in Computer Engineering at CPUT. Hands-on academic, personal and collaborative project experience across software development, networking, databases, embedded systems and artificial intelligence.',
+    'Computer Engineering graduate currently completing a Bachelor of Engineering Technology at CPUT, with four months of professional development and collaborative project experience through CAPACITI. Hands-on work spans software development, networking, databases, embedded systems and artificial intelligence.',
   brandTags: [
     'Software Development',
     'Networks & Systems',
@@ -59,7 +59,7 @@ export const getProfilePhoto = (): string | null => {
 
 export const ABOUT_PARAGRAPHS = [
   'I am a Computer Engineering graduate holding a completed Diploma in Computer Engineering, currently completing my Bachelor of Engineering Technology in Computer Engineering at the Cape Peninsula University of Technology (CPUT). My technical interests span software development, networking, systems administration, cybersecurity, embedded systems, artificial intelligence, machine learning, databases and cloud technologies.',
-  'Through my academic work, personal projects and professional development journey, I have focused on turning technical concepts into practical solutions. I enjoy understanding how systems work, troubleshooting problems and continuously developing my technical abilities.',
+  'Through my academic work, personal projects and four months in the CAPACITI Demand Academy, I have focused on turning technical concepts into practical solutions and building experience through collaborative projects. I enjoy understanding how systems work, troubleshooting problems and continuously developing my technical abilities.',
   'I am particularly interested in opportunities where I can continue developing as a technology professional while contributing to real-world projects and learning from experienced teams.',
 ];
 
@@ -108,7 +108,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: 'Software & Development',
     iconName: 'Code2',
     description: 'Languages and technologies used to build software and backend solutions.',
-    skills: ['Python', 'Java', 'JavaScript', 'Node.js', 'HTML', 'CSS', 'Backend Development'],
+    skills: ['Python', 'Java', 'JavaScript', 'Node.js', 'Express', 'React', 'HTML', 'CSS', 'Backend Development'],
     accentColor: 'blue',
   },
   {
@@ -181,16 +181,32 @@ export const CAPACITI_MILESTONES: JourneyMilestone[] = [
     isPlaceholder: false,
   },
   {
-    month: 'Month 3 & Beyond',
+    month: 'Month 3',
     title: 'Applied Engineering & Solutions',
-    status: 'Upcoming',
-    focus: 'Advanced practical applications, cross-domain integrations, and ongoing engineering development.',
+    status: 'Completed',
+    focus: 'Applying technical learning through collaborative projects and practical engineering solutions.',
     topics: [
-      'Full-stack system development integrating intelligent services',
-      'Network-level data processing and infrastructure automation',
-      'Embedded sensor systems with machine learning edge pipelines',
+      'Collaborative software development through CAPACITI Demand Academy projects',
+      'Contributing to application features, interface workflows, and repository maintenance',
+      'Applying engineering problem-solving to practical project requirements',
     ],
-    isPlaceholder: true,
+    isPlaceholder: false,
+  },
+  {
+    month: 'Month 4',
+    title: 'Software Development',
+    status: 'In Progress',
+    focus: 'Building frontend and backend development skills with React, Node.js, and Express through IBM coursework.',
+    topics: [
+      'Developing front-end applications with React',
+      'Building back-end applications with Node.js and Express',
+      'Applying software development concepts through IBM coursework',
+    ],
+    certifications: [
+      'Developing Back-End Apps with Node.js and Express (IBM)',
+      'Developing Front-End Apps with React (IBM)',
+    ],
+    isPlaceholder: false,
   },
 ];
 
@@ -412,6 +428,24 @@ export const FEATURED_PROJECTS: Project[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    id: 'coursera-ibm-backend-node-express',
+    title: 'Developing Back-End Apps with Node.js and Express',
+    classification: 'Course',
+    provider: 'IBM',
+    previewImage: 'https://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/verify/FLTGCEPPX8NX',
+    buttonLabel: 'View Certificate',
+  },
+  {
+    id: 'coursera-ibm-frontend-react',
+    title: 'Developing Front-End Apps with React',
+    classification: 'Course',
+    provider: 'IBM',
+    previewImage: 'https://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/verify/E5N03UWSPARX',
+    buttonLabel: 'View Certificate',
+  },
   {
     id: 'coursera-unsupervised-learning',
     title: 'Unsupervised Learning, Recommenders, Reinforcement Learning',
