@@ -29,7 +29,7 @@ export const PERSONAL_INFO = {
   email: 'mafuta.siyamthand@gmail.com',
   alternateEmail: 'mafuta.siyamthand@gmail.com',
   location: 'Cape Town, Western Cape, South Africa',
-  photoUrl: '',
+  photoUrl: '/professional_image.png',
   github: 'https://github.com/Siyamthanda101',
   linkedin: 'https://www.linkedin.com/in/siyamthanda-mafuta-0454b51ba/',
   professionalSummary:
