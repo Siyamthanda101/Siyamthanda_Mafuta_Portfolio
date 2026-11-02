@@ -104,7 +104,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-900/50 p-1.5 rounded-full border border-slate-800/80" aria-label="Main Navigation">
+        <nav className="hidden xl:flex items-center gap-1 bg-slate-900/50 p-1.5 rounded-full border border-slate-800/80" aria-label="Main Navigation">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -126,7 +126,7 @@ export default function Navbar() {
         </nav>
 
         {/* Quick CTA, Theme Toggle & Status */}
-        <div className="hidden sm:flex items-center gap-2">
+        <div className="hidden xl:flex items-center gap-2">
           {/* Theme Toggle in Desktop Header */}
           <ThemeToggle variant="compact" id="desktop-theme-toggle" />
 
@@ -163,7 +163,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Actions: Theme Toggle + Hamburger */}
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <ThemeToggle variant="compact" id="mobile-header-theme-toggle" />
           <button
             type="button"
@@ -181,7 +181,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation-drawer"
-          className="lg:hidden bg-[#0a0f1c] border-b border-slate-800 px-4 pt-3 pb-6 mt-3 space-y-3 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
+          className="xl:hidden bg-[#0a0f1c] border-b border-slate-800 px-4 pt-3 pb-6 mt-3 space-y-3 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
         >
           {/* Mobile Theme Toggle Full Switch */}
           <div className="pb-1">

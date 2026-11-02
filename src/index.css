@@ -5,6 +5,23 @@
  */
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  color-scheme: dark;
+  --page-background: #0b1220;
+  --section-background: #111b2e;
+  --card-background: #172338;
+  --accent-blue: #3b82f6;
+  --accent-emerald: #10b981;
+  --accent-ai: #8b5cf6;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+}
+
+html.dark body {
+  background-color: var(--page-background);
+  color: var(--text-primary);
+}
+
 /* ==========================================================================
    Smooth Scrolling & Accessibility (Reduced Motion & Accessible Theme State)
    ========================================================================== */
@@ -142,6 +159,28 @@ html.light {
   transform: translateY(0);
 }
 
+html.dark [class*="bg-[#080"] {
+  background-color: var(--page-background) !important;
+}
+
+html.dark [class*="bg-[#090d"],
+html.dark [class*="bg-[#090e"],
+html.dark [class*="bg-[#111b"] {
+  background-color: var(--section-background) !important;
+}
+
+html.dark [class*="bg-[#0a0f"],
+html.dark [class*="bg-[#0b14"],
+html.dark [class*="bg-[#0e16"],
+html.dark [class*="bg-[#1723"],
+html.dark [class*="bg-slate-900"] {
+  background-color: var(--card-background) !important;
+}
+
+html.dark [class*="bg-slate-950"] {
+  background-color: var(--section-background) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-on-scroll {
     opacity: 1 !important;
@@ -219,6 +258,9 @@ html.light [class*="bg-[#0a0"],
 html.light [class*="bg-[#0b1"],
 html.light [class*="bg-[#0c1"],
 html.light [class*="bg-[#0e1"],
+html.light [class*="bg-[#0b1"],
+html.light [class*="bg-[#111b"],
+html.light [class*="bg-[#1723"],
 html.light .bg-\[\#080c14\],
 html.light .bg-\[\#060910\],
 html.light .bg-\[\#080d17\],

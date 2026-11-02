@@ -17,7 +17,7 @@ function PortfolioContent() {
   useScrollReveal();
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-slate-100 relative selection:bg-blue-600/30 selection:text-blue-200 transition-colors duration-300">
+    <div className="min-h-screen bg-[#0b1220] text-slate-100 relative selection:bg-blue-600/30 selection:text-blue-200 transition-colors duration-300">
       {/* Subtle animated network constellation canvas */}
       <NetworkBackground />
 

@@ -46,6 +46,7 @@ export interface Project {
 }
 
 export type AchievementClassification = 'Badge' | 'Specialization' | 'Course';
+export type CertificationGroup = 'software-development' | 'cloud-infrastructure-ai';
 
 export interface Certification {
   id: string;
@@ -53,9 +54,13 @@ export interface Certification {
   classification: AchievementClassification;
   provider: string;
   completedDate?: string;
-  previewImage: string;
-  verificationUrl: string;
-  buttonLabel: 'View Badge' | 'View Certificate';
+  previewImage?: string;
+  verificationUrl?: string;
+  buttonLabel?: 'View Badge' | 'View Certificate';
+  group?: CertificationGroup;
+  featured?: boolean;
+  offeredThrough?: string;
+  learningPathCourseCount?: number;
 }
 
 export interface JourneyMilestone {

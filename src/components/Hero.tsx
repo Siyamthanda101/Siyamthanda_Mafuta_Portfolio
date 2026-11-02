@@ -32,10 +32,6 @@ export default function Hero() {
       className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-slate-800/50"
       aria-label="Hero Section"
     >
-      {/* Subtle, soft ambient background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-80 h-80 bg-purple-600/8 blur-[140px] rounded-full pointer-events-none -z-10" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
@@ -60,11 +56,8 @@ export default function Hero() {
               </h1>
 
               {/* Primary Headline */}
-              <h2 className="text-xl sm:text-2xl font-semibold text-slate-200 tracking-tight leading-snug">
-                Computer Engineering Graduate |{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
-                  Software, Networks & Intelligent Systems
-                </span>
+              <h2 className="max-w-3xl text-lg font-semibold leading-relaxed tracking-tight text-slate-200 sm:text-xl">
+                {PERSONAL_INFO.headline}
               </h2>
             </div>
 
@@ -74,25 +67,6 @@ export default function Hero() {
                 {PERSONAL_INFO.supportingText}
               </p>
 
-              {/* Personal Brand Tags: ONLY the four specified tags */}
-              <div className="space-y-2 pt-1">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block">
-                  Core Focus Areas
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {PERSONAL_INFO.brandTags.map((tag) => {
-                    return (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900/90 text-slate-200 border border-slate-800 shadow-sm transition-transform duration-200 hover:-translate-y-0.5"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                        <span>{tag}</span>
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
             </div>
 
             {/* 3. Main Call-to-Action Buttons - Entrance 3 */}
@@ -171,21 +145,11 @@ export default function Hero() {
               {/* Rectangular container with softly rounded corners */}
               <div 
                 id="hero-profile-container"
-                className="relative bg-gradient-to-b from-[#0e1627] to-[#0a0f1d] p-3.5 rounded-2xl border border-slate-800 transition-all duration-200 shadow-xl shadow-black/40 backdrop-blur-xl group"
+                className="relative rounded-2xl border border-slate-800 bg-[#172338] p-3.5 shadow-xl shadow-black/20"
               >
-                {/* Subtle technical connection points & corner boundary lines */}
-                <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t border-l border-blue-400/80"></div>
-                <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t border-r border-blue-400/80"></div>
-                <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b border-l border-blue-400/80"></div>
-                <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b border-r border-blue-400/80"></div>
-
-                {/* Technical engineering header */}
                 <div className="flex items-center justify-between px-3 py-2 border-b border-slate-800/80 mb-3 text-[11px] font-mono text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    <span className="text-slate-300">PORTRAIT CONTAINER</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-blue-400">CPUT // CAPACITI</span>
+                  <span className="text-slate-300">PROFILE</span>
+                  <span>CAPE TOWN, SOUTH AFRICA</span>
                 </div>
 
                 {/* Primary Image / Permanent Profile Presentation */}
@@ -241,10 +205,10 @@ export default function Hero() {
                   <div className="absolute bottom-2 left-2 right-2 bg-slate-950/85 backdrop-blur-md rounded-lg p-2.5 border border-slate-800 text-left flex items-center justify-between text-xs">
                     <div>
                       <p className="font-semibold text-slate-200">Siyamthanda Mafuta</p>
-                      <p className="text-[11px] text-slate-400 font-mono">BEng Student (CPUT)</p>
+                      <p className="text-[11px] text-slate-400 font-mono">BEngTech Candidate · CPUT</p>
                     </div>
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-blue-950 text-blue-300 border border-blue-800/50">
-                      STUDENT
+                      CANDIDATE
                     </span>
                   </div>
                 </div>
